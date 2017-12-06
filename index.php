@@ -27,7 +27,9 @@
   </style>
 </head>
 <body>
-
+<?php
+   require_once('sqlconnection.php');
+?>
 <div class="jumbotron">
   <div class="container text-center">
     <h1>Music Stream Website</h1>      

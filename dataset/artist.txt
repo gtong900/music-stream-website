@@ -16,7 +16,7 @@ INSERT INTO artist VALUES ('0hCNtLu0JehylgoiP8L4Gh', "Nicki Minaj", "dance pop h
 INSERT INTO artist VALUES ('1l8Fu6IkuTP0U5QetQJ5Xt', "Fifth Harmony", "dance pop pop post-teen pop talent show ");
 INSERT INTO artist VALUES ('6x2LnllRG5uGarZMsD4iO8', "Thomas Rhett", "contemporary country country road ");
 INSERT INTO artist VALUES ('7dGJo4pcD2V6oG8kP0tJRR', "Eminem", "detroit hip hop g funk hip hop pop rap rap ");
-INSERT INTO artist VALUES ('6vWDO969PvNqNYHIOW5v0m', "BeyoncÌ©", "dance pop pop pop rap post-teen pop r&b ");
+INSERT INTO artist VALUES ('6vWDO969PvNqNYHIOW5v0m', "Beyonce", "dance pop pop pop rap post-teen pop r&b ");
 INSERT INTO artist VALUES ('6JL8zeS1NmiOftqZTRgdTz', "Meghan Trainor", "dance pop hip pop pop post-teen pop r&b ");
 INSERT INTO artist VALUES ('3YQKmKGau1PzlVlkL1iodx', "Twenty One Pilots", "modern rock pop punk ");
 INSERT INTO artist VALUES ('6PXS4YHDkKvl1wkIl4V8DL', "Fetty Wap", "dance pop dwn trap hip hop pop rap rap southern hip hop trap music ");
@@ -1079,7 +1079,7 @@ INSERT INTO artist VALUES ('5BmXbfqAgfkuTkPlVQDKOW', "David Gates", "mellow gold
 INSERT INTO artist VALUES ('0aqrM7Fo3Ml66Kc5JAzmjt', "Deana Carter", "contemporary country country country christmas country dawn country road ");
 INSERT INTO artist VALUES ('568ZhdwyaiCyOGJRtNYhWf', "Deep Purple", "album rock art rock blues-rock british blues classic funk rock classic rock hard rock metal psychedelic rock rock soft rock ");
 INSERT INTO artist VALUES ('1FGH4Bh7g9W6V4fUcKZWp5', "Descendents", "alternative rock emo hardcore punk pop punk punk ska punk skate punk ");
-INSERT INTO artist VALUES ('19rplJ3Uh67C1fNAwq7ohw', "_Ó_ü___¡ _Ô_ü_È_¡__", "classic russian rock eurovision russian pop russiavision ");
+INSERT INTO artist VALUES ('19rplJ3Uh67C1fNAwq7ohw', "_Ó_ü___?_Ô_ü_È_¡__", "classic russian rock eurovision russian pop russiavision ");
 INSERT INTO artist VALUES ('1pcqjPVtlhYZThnmAKiRq4', "Diamond Rings", "indietronica metropopolis ");
 INSERT INTO artist VALUES ('0YinUQ50QDB7ZxSCLyQ40k', "DJ Mustard", "deep pop r&b dwn trap hip hop pop rap r&b rap southern hip hop trap music ");
 INSERT INTO artist VALUES ('74IEeKcuS34kF2TjOigXra', "Donnie McClurkin", "christian christmas gospel ");
