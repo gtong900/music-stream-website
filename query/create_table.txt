@@ -1,0 +1,97 @@
+CREATE TABLE artist (
+	artistid VARCHAR (255) NOT NULL,
+	artistitle VARCHAR (255) NOT NULL,
+	artistdescription VARCHAR (255),
+	PRIMARY KEY (`artistid`)
+);
+ 
+CREATE TABLE track (
+	trackid VARCHAR (255) NOT NULL,
+	trackname VARCHAR (255) NOT NULL,
+	trackduration VARCHAR (255) NOT NULL,
+	artistid VARCHAR (255) NOT NULL,
+	PRIMARY KEY (`trackid`),
+	FOREIGN KEY (`artistid`) REFERENCES `Artist` (`artistid`)
+);
+ 
+ 
+CREATE TABLE user (
+  username varchar (255) NOT NULL,
+  uname varchar (255) NOT NULL,
+  email varchar (255) NOT NULL,
+  city varchar (255) NOT NULL,
+  password varchar (255) NOT NULL,
+  PRIMARY KEY(username)
+);
+ 
+CREATE TABLE album (
+	albumid VARCHAR (255) NOT NULL,
+	albumname varchar (255) NOT NULL,
+	albumreleasedate datetime NOT NULL,
+	PRIMARY KEY(albumid)
+);
+ 
+CREATE TABLE albumcontent(
+	albumid VARCHAR (255) NOT NULL,
+	trackid VARCHAR (255) NOT NULL,
+	PRIMARY KEY (albumid, trackid),
+	FOREIGN KEY (`albumid`) REFERENCES Album (`albumid`),
+	FOREIGN KEY (`trackid`) REFERENCES track (`trackid`)
+);
+ 
+ 
+CREATE TABLE playlist (
+	pid VARCHAR (255) NOT NULL,
+	ptitle varchar (255) NOT NULL,
+	pdate datetime NOT NULL,
+	powner varchar (255) NOT NULL,
+	public boolean DEFAULT TRUE,
+	PRIMARY KEY(pid),
+	FOREIGN KEY (`powner`) REFERENCES user (`username`)
+);
+ 
+CREATE TABLE playlistcontent(
+	pid VARCHAR (255) NOT NULL,
+	trackid VARCHAR (255) NOT NULL,
+	porder INT NOT NULL,
+	PRIMARY KEY (pid, trackid),
+	FOREIGN KEY (`pid`) REFERENCES playlist (`pid`),
+	FOREIGN KEY (`trackid`) REFERENCES track (`trackid`)
+);
+ 
+CREATE TABLE likes (
+	 artistid VARCHAR (255) NOT NULL,
+	 username VARCHAR (255) NOT NULL,
+	 liketime DATETIME NOT NULL,
+	 PRIMARY KEY (artistid,username),
+	 FOREIGN KEY (`artistid`) REFERENCES Artist (`artistid`),
+	 FOREIGN KEY (`username`) REFERENCES user (`username`)    
+);
+ 
+CREATE TABLE rate (
+	  username VARCHAR (255) NOT NULL,
+	  trackid VARCHAR (255) NOT NULL,
+	  rating INT NOT NULL,
+	  ratetime DATETIME NOT NULL,
+	 PRIMARY KEY (username,trackid),
+	 FOREIGN KEY (`trackid`) REFERENCES track (`trackid`),
+	 FOREIGN KEY (`username`) REFERENCES user (`username`)    
+);
+ 
+CREATE TABLE follows (
+	  username VARCHAR (255) NOT NULL,
+	  follower VARCHAR (255) NOT NULL,
+	  followtime DATETIME NOT NULL,
+	 PRIMARY KEY (username,follower),
+	 FOREIGN KEY (`username`) REFERENCES user (`username`),  
+	FOREIGN KEY (`follower`) REFERENCES user (`username`)    
+);
+ 
+CREATE TABLE play (
+	  username VARCHAR (255) NOT NULL,
+	  trackid VARCHAR (255) NOT NULL,
+	  playtime DATETIME NOT NULL,
+	 PRIMARY KEY (username,playtime),
+	 FOREIGN KEY (`username`) REFERENCES user (`username`),  
+	FOREIGN KEY(`trackid`) REFERENCES track (`trackid`)  
+);
