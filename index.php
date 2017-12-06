@@ -30,8 +30,8 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Online Store</h1>      
-    <p>Mission, Vission & Values</p>
+    <h1>Music Stream Website</h1>      
+    <p>---database project</p>
   </div>
 </div>
 
