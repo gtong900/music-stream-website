@@ -7457,8 +7457,8 @@ INSERT INTO album VALUES ('7rzrGobBV6cmHyIv4tcMu8', "Let There Be GWAR", '2009/0
 INSERT INTO album VALUES ('7mH1eWOoQ0dWtWmrjqMj2S', "Slaves Going Single", '2009/01/12');
 INSERT INTO album VALUES ('5cBWWgUyBSHvA619fu9sEf', "Another Way To Live", '2009/01/12');
 INSERT INTO album VALUES ('0MjnH387JBN1THI4HblVxp', "Live From Mt. Fuji", '2009/01/12');
-INSERT INTO album VALUES ('4Lg3j4jIT9MN2Vw4HDTHtF', "Silence e.p. "Underconstruction 1", '2009/01/11');
-INSERT INTO album VALUES ('3YDDpAIpdfUGaQDm9L7zqJ', "Silence e.p. "Underconstruction 1", '2009/01/11');
+INSERT INTO album VALUES ('4Lg3j4jIT9MN2Vw4HDTHtF', "Silence e.p. Underconstruction 1", '2009/01/11');
+INSERT INTO album VALUES ('3YDDpAIpdfUGaQDm9L7zqJ', "Silence e.p. Underconstruction 1", '2009/01/11');
 INSERT INTO album VALUES ('1bzigFTZ24NgxslkbX30ob', "Singh Better Than King", '2009/01/11');
 INSERT INTO album VALUES ('1NENKISu7UWV6GxcqKmgZM', "In A Quiet Room, Vol. 1", '2009/01/10');
 INSERT INTO album VALUES ('1BxNuh06131yYQoUQdzHxz', "In A Quiet Room, Vol. II", '2009/01/10');
