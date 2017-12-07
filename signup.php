@@ -9,6 +9,20 @@
 <body>
 <h1>Music Online</h1>
 <h3>Signup</h3>
+
+<?php
+// this is to check for form errors
+session_start();
+if(isset($_SESSION["UsernameTaken"]) && $_SESSION["UsernameTaken"]!= false)
+	 Echo "<b>UserName Taken already please try another</b>";
+if(isset($_SESSION["Emailexists"]) && $_SESSION["Emailexists"]!= false)
+	 Echo "<b>This email exists, try login</b>";
+if(isset($_SESSION["PasswordMatch"]) &&$_SESSION["PasswordMatch"]!= true)
+	 Echo "<b>Password do not match, try again</b>";
+if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
+	 Echo "<b>Email do not match, try again</b>";
+
+?>
 		<!-- This signing in-->
 		<form method="get" action="insert.php">
 		<body>
