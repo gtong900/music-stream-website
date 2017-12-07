@@ -8,37 +8,45 @@
 </head>
 <body>
 <h1>Music Online</h1>
-<h3>Login</h3>
+<h3>Signup</h3>
 		<!-- This signing in-->
-		<?php
-		// if user input incorrect login
-		if(!empty($_GET)){
-			?>
-			<p> incorrect username or password. Try again
-			<?php
-		}
-		
-		?>
-		<form method="get" action="authenticateUser.php">
+		<form method="get" action="insert.php">
 		<body>
 		<table>
 		  <tr>
 			<td>UserName *:</td>
 			<td><input type="text" size="10" name="username" required></td>
 		  </tr>
+		  
 		  <tr>
 			<td>Password *:</td>
-			<td><input type="password" size="10" name="password" required></td> </tr>
-			
+			<td><input type="password" size="10" name="password" minlength= 6 required></td> </tr>
 		  </tr>
+		  
+		  <tr>
+			<td>Confirm Password *:</td>
+			<td><input type="password" size="10" name="password_confirm" minlength= 6 required></td> </tr>
+		  </tr>
+		  
+		  <tr>
+			<td>Email *:</td>
+			<td><input type="email" size="10" name="email" required></td>
+		  </tr>
+		  
+		  <tr>
+			<td>City *:</td>
+			<td><input type="text" size="10" name="city" required></td>
+		  </tr>
+		  
 		</table>
 		<p><input type="submit" value="Login">
 		</form>
 		</br>
-		<!-- For signing up -->
-		<form method="get" action="/music_local/signup.php">
-		<h4>Not a user?? Sign up here:</h4>
-		<p><input type="submit" value="signup">
-		</form>
+		
 </body>
-</html>
+	<h1><form action="index.php" method="get">
+	<button  type="submit" value=>Home</button>
+	</form></h1>
+
+	</html>
+		
