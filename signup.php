@@ -1,14 +1,5 @@
 <?php require_once('frame_header.php');?>
 
-<html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-  <title>Login</title>
-</head>
-<body>
 <h1>Music Online</h1>
 <h3>Signup</h3>
 
@@ -68,15 +59,10 @@ if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
 		<p><input type="submit" value="Signup">
 		</form>
 		</br>
-		
-</body>
-	<h1><form action="index.php" method="get">
-	<button  type="submit" value=>Home</button>
-	</form></h1>
+		<h1><form action="index.php" method="get">
+		<button  type="submit" value=>Home</button>
+		</form></h1>
 
-	</html>
 		
-		
-		
-		
-<?phprequire_once('frame_footer.php');?>
+				
+<? phprequire_once('frame_footer.php');?>
