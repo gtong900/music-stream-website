@@ -1,19 +1,34 @@
 <?php
 
+require_once('frame_header.php');
+require_once 'sqlconnection.php';
 
-DEFINE ('DB_USER', 'nyu@db-project');
-DEFINE ('DB_PASSWORD', 'Ny99999999');
-DEFINE ('DB_HOST', 'db-project.mysql.database.azure.com');
-DEFINE ('DB_NAME', 'spotify');
+$result = $conn->query("select * from user ");
 
-// $dbc will contain a resource link to the database
-// @ keeps the error from showing in the browser
+		if($result->num_rows !== 0){	// match found results 
+			// output data of each row
+			while($row = $result->fetch_assoc()){
+				$n = count($row);
+				
+				foreach ($row as $x) {
+					echo "<tr>".$x."</tr>";
+					
+				}
+				echo "<br>";
+			/*foreach($row as $x => $x_value) {
+				echo "Key=" . $x . ", Value=" . $x_value;
+				echo "<br>";
+			}
+			}
+			while($row = $result->fetch_assoc()){
+						// info
+						echo "---RESTAURANT ID: ".$row['rid'] ." ---RESTAURANT NAME: ".$row['rname'].
+						" ---RESTAURANT DESCRIPTION: " .$row['description']." ---RESTAURANT ADDRESS: " .$row['raddress'];
+					
+						//echo  '<br />';
+						*/
+			}
+		}
 
-$dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-OR die('Could not connect to MySQL: ' . mysqli_connect_error());
-
-$result = $dbc->query("select artistid from artist limit 1");
-//$result ="jjjj";
-echo $result->fetch_assoc()['artistid'];
-
+		require_once('frame_footer.php');
 ?>

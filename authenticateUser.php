@@ -1,6 +1,6 @@
 <?php
 require_once 'sqlconnection.php';
-require_once 'authentication.inc.php';
+require_once 'authentication.inc';
 
 	if(authenticateUser($conn,$_POST["username"],$_POST["password"])){
 		session_start();
