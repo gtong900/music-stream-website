@@ -1,6 +1,6 @@
 <?php
 
-include 'sqlconnection.php';
+require_once 'sqlconnection.php';
 
 $username =  $_POST["username"];
 $fullname =  $_POST["fullname"];
@@ -10,7 +10,6 @@ $email1 = $_POST["email"];
 $email2 = $_POST["email_confirm"]; 
 $city = $_POST["city"]; 
 
-$conn = OpenCon();
 session_start();
 $_SESSION["UsernameTaken"]= false;
 $_SESSION["Emailexists"]= false;
@@ -79,6 +78,5 @@ $_SESSION["EmailMatch"]= true;
 	}
 		
 
-$conn->close();
 
 ?>

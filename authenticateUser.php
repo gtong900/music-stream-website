@@ -1,9 +1,6 @@
 <?php
-include 'sqlconnection.php';
-include 'authentication.inc.php';
-
-$conn = OpenCon();
-
+require_once 'sqlconnection.php';
+require_once 'authentication.inc.php';
 
 	if(authenticateUser($conn,$_POST["username"],$_POST["password"])){
 		session_start();
@@ -22,6 +19,5 @@ $conn = OpenCon();
 		//header("Location: http://website2.com/".$fpvalue.".aspx?r=".$frvalue."&s=".$fsvalue);
 	}
 	
- CloseCon($conn);
 
 ?>
