@@ -5,7 +5,7 @@ include 'sqlconnection.php';
 $username =  $_GET["username"];
 $fullname =  $_GET["fullname"];
 $pass1 = $_GET["password"]; 
-$pass2 = $_GET["passwordconfirm"]; 
+$pass2 = $_GET["password_confirm"]; 
 $email1 = $_GET["email"]; 
 $email2 = $_GET["email_confirm"]; 
 $city = $_GET["city"]; 
@@ -20,12 +20,12 @@ $_SESSION["EmailMatch"]= true;
 
 
 //check if username already exists
-	  $usernamequery = "SELECT username FROM users WHERE username = '{$username}'";
+	  $usernamequery = "SELECT username FROM user WHERE username = '{$username}'";
 	  
 	  // Execute the query
 	  
-	  if($result = $conn->query($usernamequery))
-	  showerror();
+	 $result = $conn->query($usernamequery);
+		//showerror();
   
 	  // exactly one row? then user
 	  if ($result->num_rows == 1)
@@ -33,12 +33,12 @@ $_SESSION["EmailMatch"]= true;
 	
 
 //check if email exist
-		$emailquery = "SELECT email FROM users WHERE email = '{$email}'";
+		$emailquery = "SELECT email FROM user WHERE email = '{$email1}'";
 	  
 	  // Execute the query
 	  
-	  if($result = $conn->query($emailquery))
-	  showerror();
+	  $result = $conn->query($emailquery);
+	  //showerror();
   
 	  // exactly one row? then user
 	  if ($result->num_rows == 1)
@@ -46,10 +46,10 @@ $_SESSION["EmailMatch"]= true;
 
 
 //check for passwork match
-		if(pass1!=pass2)
+		if($pass1!=$pass2)
 			$_SESSION["PasswordMatch"] = false;
 //check for passwork match
-		if(email1!=email2)
+		if($email1!=$email2)
 			$_SESSION["EmailMatch"] = false;
 
 	// if username exists ask to try another one
