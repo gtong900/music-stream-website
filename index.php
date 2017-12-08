@@ -46,4 +46,4 @@
 </body>
 </html>
 
-<?phprequire_once('frame_footer.php');?>
+<?php require_once('frame_footer.php');?>
