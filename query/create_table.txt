@@ -41,7 +41,7 @@ CREATE TABLE albumcontent(
  
  
 CREATE TABLE playlist (
-	pid VARCHAR (255) NOT NULL,
+	pid INT NOT NULL AUTO_INCREMENT,
 	ptitle varchar (255) NOT NULL,
 	pdate datetime NOT NULL,
 	powner varchar (255) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE playlist (
 );
  
 CREATE TABLE playlistcontent(
-	pid VARCHAR (255) NOT NULL,
+	pid INT NOT NULL,
 	trackid VARCHAR (255) NOT NULL,
 	porder INT NOT NULL,
 	PRIMARY KEY (pid, trackid),
