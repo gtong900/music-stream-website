@@ -63,6 +63,7 @@ $_SESSION["EmailMatch"]= true;
 	$_SESSION["EmailMatch"]== true){
 		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
 	
+	echo "sign up complete!";
 	 if($insertion = $conn->query($insertNewUser))
 	  showerror();
 	
