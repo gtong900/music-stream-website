@@ -2,7 +2,7 @@
         <div id="nowPlayingBar">
             <div id="nowPlayingLeft">
                 <div class="content">
-                    <iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+                    <iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="100%" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
             <div id="nowPlayingCenter">
