@@ -2,13 +2,13 @@
 
 include 'sqlconnection.php';
 
-$username =  $_GET["username"];
-$fullname =  $_GET["fullname"];
-$pass1 = $_GET["password"]; 
-$pass2 = $_GET["passwordconfirm"]; 
-$email1 = $_GET["email"]; 
-$email2 = $_GET["email_confirm"]; 
-$city = $_GET["city"]; 
+$username =  $_POST["username"];
+$fullname =  $_POST["fullname"];
+$pass1 = $_POST["password"]; 
+$pass2 = $_POST["password_confirm"]; 
+$email1 = $_POST["email"]; 
+$email2 = $_POST["email_confirm"]; 
+$city = $_POST["city"]; 
 
 $conn = OpenCon();
 session_start();
@@ -20,12 +20,12 @@ $_SESSION["EmailMatch"]= true;
 
 
 //check if username already exists
-	  $usernamequery = "SELECT username FROM users WHERE username = '{$username}'";
+	  $usernamequery = "SELECT username FROM user WHERE username = '{$username}'";
 	  
 	  // Execute the query
 	  
-	  if($result = $conn->query($usernamequery))
-	  showerror();
+	 $result = $conn->query($usernamequery);
+		//showerror();
   
 	  // exactly one row? then user
 	  if ($result->num_rows == 1)
@@ -33,12 +33,12 @@ $_SESSION["EmailMatch"]= true;
 	
 
 //check if email exist
-		$emailquery = "SELECT email FROM users WHERE email = '{$email}'";
+		$emailquery = "SELECT email FROM user WHERE email = '{$email1}'";
 	  
 	  // Execute the query
 	  
-	  if($result = $conn->query($emailquery))
-	  showerror();
+	  $result = $conn->query($emailquery);
+	  //showerror();
   
 	  // exactly one row? then user
 	  if ($result->num_rows == 1)
@@ -46,10 +46,10 @@ $_SESSION["EmailMatch"]= true;
 
 
 //check for passwork match
-		if(pass1!=pass2)
+		if($pass1!=$pass2)
 			$_SESSION["PasswordMatch"] = false;
 //check for passwork match
-		if(email1!=email2)
+		if($email1!=$email2)
 			$_SESSION["EmailMatch"] = false;
 
 	// if username exists ask to try another one
@@ -62,13 +62,21 @@ $_SESSION["EmailMatch"]= true;
 	$_SESSION["PasswordMatch"]== true &&
 	$_SESSION["EmailMatch"]== true){
 		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
-	
-	 if($insertion = $conn->query($insertNewUser))
-	  showerror();
-	
-
-	
-	}	
+			//reset session
+			$_SESSION["UsernameTaken"]= false;
+			$_SESSION["Emailexists"]= false;
+			$_SESSION["PasswordMatch"]= true;
+			$_SESSION["EmailMatch"]= true;
+			
+		
+	echo "sign up complete!";
+	 //if($insertion = $conn->query($insertNewUser))
+	  //showerror();
+	header("Location: index.php");	
+	}else{
+		// go back
+		header("Location: signup.php");
+	}
 		
 
 $conn->close();

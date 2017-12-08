@@ -29,7 +29,8 @@ $dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
 OR die('Could not connect to MySQL: ' . mysqli_connect_error());
 /*
 */
-
+function OpenCon()
+ {
  $dbhost = "db-project.mysql.database.azure.com";
  $dbuser = "nyu@db-project";
  $dbpass = "Ny99999999";
@@ -38,5 +39,13 @@ OR die('Could not connect to MySQL: ' . mysqli_connect_error());
 
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db)  or die('Could not connect: ' . mysql_error());
  // mysql_connect($dbhost, $dbuser, $dbpass)  or die('Could not connect: ' . mysql_error());
+ 
+ return $conn;
+ }
+
+function CloseCon($conn)
+ {
+ $conn -> close();
+ }
  
 ?>

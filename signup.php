@@ -1,3 +1,5 @@
+<?php require_once('frame_header.php');?>
+
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -14,17 +16,17 @@
 // this is to check for form errors
 session_start();
 if(isset($_SESSION["UsernameTaken"]) && $_SESSION["UsernameTaken"]!= false)
-	 Echo "<b>UserName Taken already please try another</b>";
+	 Echo "<b>UserName Taken already please try another</b></br>";
 if(isset($_SESSION["Emailexists"]) && $_SESSION["Emailexists"]!= false)
-	 Echo "<b>This email exists, try login</b>";
+	 Echo "<b>This email exists, try login</b></br>";
 if(isset($_SESSION["PasswordMatch"]) &&$_SESSION["PasswordMatch"]!= true)
-	 Echo "<b>Password do not match, try again</b>";
+	 Echo "<b>Password do not match, try again</b></br>";
 if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
-	 Echo "<b>Email do not match, try again</b>";
+	 Echo "<b>Email do not match, try again</b></br>";
 
 ?>
 		<!-- This signing in-->
-		<form method="get" action="insertuser.php">
+		<form method="post" action="insertuser.php">
 		<body>
 		<table>
 		  <tr>
@@ -74,3 +76,7 @@ if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
 
 	</html>
 		
+		
+		
+		
+<?phprequire_once('frame_footer.php');?>

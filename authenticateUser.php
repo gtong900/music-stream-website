@@ -1,11 +1,11 @@
 <?php
 include 'sqlconnection.php';
-include 'authentication.inc';
+include 'authentication.inc.php';
 
 $conn = OpenCon();
 
 
-	if(authenticateUser($conn,$_GET["username"],$_GET["password"])){
+	if(authenticateUser($conn,$_POST["username"],$_POST["password"])){
 		session_start();
 		  $_SESSION["loginUsername"] = $loginUsername;
 
