@@ -2,13 +2,13 @@
 
 include 'sqlconnection.php';
 
-$username =  $_GET["username"];
-$fullname =  $_GET["fullname"];
-$pass1 = $_GET["password"]; 
-$pass2 = $_GET["password_confirm"]; 
-$email1 = $_GET["email"]; 
-$email2 = $_GET["email_confirm"]; 
-$city = $_GET["city"]; 
+$username =  $_POST["username"];
+$fullname =  $_POST["fullname"];
+$pass1 = $_POST["password"]; 
+$pass2 = $_POST["password_confirm"]; 
+$email1 = $_POST["email"]; 
+$email2 = $_POST["email_confirm"]; 
+$city = $_POST["city"]; 
 
 $conn = OpenCon();
 session_start();
