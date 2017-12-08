@@ -4,7 +4,7 @@ require_once 'authentication.inc';
 
 	if(authenticateUser($conn,$_POST["username"],$_POST["password"])){
 		session_start();
-		  $_SESSION["loginUsername"] = $loginUsername;
+		  $_SESSION["loginUsername"] = $username;
 
 		  // Register the IP address that started this session
 		  $_SESSION["loginIP"] = $_SERVER["REMOTE_ADDR"];
