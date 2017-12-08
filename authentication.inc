@@ -8,17 +8,17 @@ function authenticateUser($connection, $username, $password)
 
   // Create a digest of the password collected from
   // the challenge
-  $password_digest = md5(trim($password));
+  //$password_digest = md5(trim($password));
 
   // Formulate the SQL find the user
   
-  $query = "SELECT password FROM users WHERE user_name = '{$username}'
-            AND password = '{$password_digest}'";
+  $query = "SELECT * FROM user WHERE username = '$username'
+            AND password = '$password'";
 
   // Execute the query
   
-  if($result = $connection->query($query))
-  showerror();
+  $result = $connection->query($query);
+  //showerror();
   //if (!$result = @ mysql_query ($query, $connection))
     
 
