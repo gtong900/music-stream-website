@@ -12,4 +12,8 @@ DEFINE ('DB_NAME', 'spotify');
 $dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
 OR die('Could not connect to MySQL: ' . mysqli_connect_error());
 
+$result = $dbc->query("select artistid from artist limit 1");
+//$result ="jjjj";
+echo $result->fetch_assoc()['artistid'];
+
 ?>

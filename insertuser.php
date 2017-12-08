@@ -30,7 +30,7 @@ $_SESSION["EmailMatch"]= true;
 	  // exactly one row? then user
 	  if ($result->num_rows == 1)
 		$_SESSION["UsernameTaken"] = true;
-	 result->free();
+	
 
 //check if email exist
 		$emailquery = "SELECT email FROM users WHERE email = '{$email}'";
@@ -43,7 +43,7 @@ $_SESSION["EmailMatch"]= true;
 	  // exactly one row? then user
 	  if ($result->num_rows == 1)
 		$_SESSION["Emailexists"] = true;
-	result->free();
+
 
 //check for passwork match
 		if(pass1!=pass2)
@@ -60,7 +60,7 @@ $_SESSION["EmailMatch"]= true;
 	if ($_SESSION["UsernameTaken"]== false &&
 	$_SESSION["Emailexists"]== false &&
 	$_SESSION["PasswordMatch"]== true &&
-	$_SESSION["EmailMatch"]== true;){
+	$_SESSION["EmailMatch"]== true){
 		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
 	
 	 if($insertion = $conn->query($insertNewUser))
