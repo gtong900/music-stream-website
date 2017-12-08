@@ -52,6 +52,7 @@
 	  </div>
 	</div>
 
+
 <?php
     require_once('frame_footer.php');
 ?>

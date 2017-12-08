@@ -2,22 +2,7 @@
     	<div id="nowPlayingBar">
     		<div id="nowPlayingLeft">
     			<div class="content">
-    				<span class="albumLink">
-    					<img src="assets/images/albumlink.jpg" alt="aulbumLink" class="albumArtwork">
-    				</span>
-
-    					<div class="trackInfo">
-
-						<span class="trackName">
-							<span>Rolling In The Deep</span>
-						</span>
-
-						<span class="artistName">
-							<span>Adele</span>
-						</span>
-
-					</div>
-
+                    <iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
     			</div>
     		</div>
     		<div id="nowPlayingCenter">
@@ -48,16 +33,6 @@
     					</button>
     				</div>
 
-	    			<div class="playbackBar">
-						<span class="progressTime current">0.00</span>
-		                  <div class="progressBar">
-		                  	<div class="progressBarBg">
-		                  		<div class="progress"></div>
-		                  	</div>
-		                  </div>
-						<span class="progressTime remaining">0.00</span>
-	    			</div>
-
     			</div>
     		</div>
     		<div id="nowPlayingRight">
@@ -76,9 +51,6 @@
     	</div>
     </div>
 
-<footer class="container-fluid text-center">
-  Musico Copyright 
-</footer>
 
 </body>
 </html>
