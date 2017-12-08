@@ -24,7 +24,7 @@ if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
 
 ?>
 		<!-- This signing in-->
-		<form method="get" action="insertuser.php">
+		<form method="post" action="insertuser.php">
 		<body>
 		<table>
 		  <tr>

@@ -62,14 +62,21 @@ $_SESSION["EmailMatch"]= true;
 	$_SESSION["PasswordMatch"]== true &&
 	$_SESSION["EmailMatch"]== true){
 		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
-	
+			//reset session
+			$_SESSION["UsernameTaken"]= false;
+			$_SESSION["Emailexists"]= false;
+			$_SESSION["PasswordMatch"]= true;
+			$_SESSION["EmailMatch"]= true;
+			
+		
 	echo "sign up complete!";
-	 if($insertion = $conn->query($insertNewUser))
-	  showerror();
-	
-
-	
-	}	
+	 //if($insertion = $conn->query($insertNewUser))
+	  //showerror();
+	header("Location: index.php");	
+	}else{
+		// go back
+		header("Location: signup.php");
+	}
 		
 
 $conn->close();
