@@ -17,7 +17,7 @@
 
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Musico</a>
+  <a class="navbar-brand" href="index.php" title="Index page">Musico</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
