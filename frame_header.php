@@ -13,6 +13,7 @@
 <body>
 <?php
    require_once('sqlconnection.php');
+   require_once('authentication.inc.php');
 ?>
 
 
@@ -25,7 +26,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="home.php">Home</a>
+        <a class="nav-link" href="home2.php">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Explore</a>

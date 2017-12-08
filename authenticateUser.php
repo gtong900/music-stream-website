@@ -1,6 +1,6 @@
 <?php
 include 'sqlconnection.php';
-include 'authentication.inc';
+include 'authentication.inc.php';
 
 $conn = OpenCon();
 
