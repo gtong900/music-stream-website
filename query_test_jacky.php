@@ -10,7 +10,7 @@ require_once 'sqlconnection.php';
 		// -------- create playlist  --------
 			// check if ptitle exists first 
 			
-			// NEED to get
+			// NEED to get:
 			//$ptitle
 			//$public 
 			
@@ -27,9 +27,9 @@ require_once 'sqlconnection.php';
 		
 		// -------- like artist  --------
 		
-		// NEED to get
-		//$artistid
-			
+			// NEED to get:
+			//$artistid
+				
 			$likeArtist = "INSERT INTO likes ('$artistid','$_SESSION["loginUsername"]', now())";
 			if($result= $conn->query($likeArtist)){ // return false if cannot insert
 				//successful
@@ -40,16 +40,35 @@ require_once 'sqlconnection.php';
 		// -------- follow user  --------
 			// follow another user
 			
-			// NEED to get
+			// NEED to get:
 			//$followedUser
 			
-			$followuser = "INSERT INTO follow ('$artistid','$_SESSION["loginUsername"]', now())";
-			if($result= $conn->query($likeArtist)){ // return false if cannot insert
+			$followuser = "INSERT INTO follows ('$followedUser','$_SESSION["loginUsername"]', now())";
+			if($result= $conn->query($followuser)){ // return false if cannot insert
 				//successful
 			}else{
-				//successful -- already liked before
+				//successful -- already followed before
 			}
-		
+			
+		// -------- rate song  --------
+			// rate a song
+			
+			// NEED to get:
+			//$track
+			
+			$ratetrack = "INSERT INTO follows ('$followedUser','$_SESSION["loginUsername"]', now())";
+			if($result= $conn->query($ratetrack)){ // return false if cannot insert
+				//successful
+			}else{
+				//successful -- already followed before
+			}
 
+			
+			
+			
+			
+			
+			
+			
 		require_once('frame_footer.php');
 ?>
