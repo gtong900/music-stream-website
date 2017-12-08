@@ -43,30 +43,7 @@ html, body {
 	width: 100%;
 }
 
-#nowPlayingLeft .albumArtwork{
-	height: 58px;
-	max-width: 58px;
-	margin-right: 15px;
-	float: left;
-	background-size: cover;
-}
 
-#nowPlayingLeft .trackInfo {
-	display: table;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #fff;
-}
-
-#nowPlayingLeft .trackInfo .trackName {
-	margin: 2px 0;
-    display: inline-block;
-    width: 100%;
-}
-
-#nowPlayingLeft .trackInfo .artistName span {
-	font-size: 12px;
-    color: #a0a0a0;
-}
 
 /* Remove the navbar's default rounded borders and increase the bottom margin */ 
 .navbar {
