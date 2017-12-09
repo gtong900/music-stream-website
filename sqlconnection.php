@@ -39,4 +39,6 @@ OR die('Could not connect to MySQL: ' . mysqli_connect_error());
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db)  or die('Could not connect: ' . mysql_error());
  // mysql_connect($dbhost, $dbuser, $dbpass)  or die('Could not connect: ' . mysql_error());
  
+ 
+ 
 ?>
