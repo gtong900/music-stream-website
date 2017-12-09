@@ -11,10 +11,10 @@
 	$playlist=new Playlist($conn,$pid);
 ?>
 
-<div class="container-fluid tracklistContainer">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md text-primary">
-			<?php echo $playlist->getTitle() ?>
+			<span class="details">Playlist:</span> &nbsp;<?php echo $playlist->getTitle() ?>
 		</div>
 		<div class="col-md text-primary">
 			<span class="details">Created By</span> &nbsp; <?php echo $playlist->getOwner() ?>
@@ -26,10 +26,8 @@
 			<span class="details">Created At</span> &nbsp; <?php echo $playlist->getDate() ?>
 		</div>
 	</div>
-</div>
 
 
-<div class="container-fluid tracklistContainer">
 	<ul class="tracklist">
 		<?php
 		 	$trackIdArray=$playlist->getTrackid();
@@ -68,5 +66,10 @@
 
 
 	</ul>
+
+
 </div>
+
+
+
 <?php require_once('frame_footer.php'); ?>
