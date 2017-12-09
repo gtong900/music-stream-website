@@ -9,12 +9,12 @@ require_once 'sqlconnection.php';
 	$currentuserID = $_SESSION["loginUsername"]
 		
 		// -------- create playlist  --------
-			// check if ptitle exists first 
 			
 			// NEED to get:
 			//$ptitle
 			//$public 
 			
+			// check if ptitle exists first 
 			$check_ptitle = "SELECT * from playlist WHERE powner = '$_SESSION["loginUsername"]' 
 			AND ptitle = '$ptitle'";
 			$result= $conn->query($check_ptitle);
@@ -22,6 +22,7 @@ require_once 'sqlconnection.php';
 				// no matching ptitle found. can insert
 				$createplaylist = "Insert INTO playlist ( ptitle, pdate, powner, public )
 				VALUES ( '$ptitle', Now(),'$currentuserID','$public')";
+				$conn->query($createplaylist);
 			}else{
 				// prompt user to enter another ptitle
 			}
@@ -74,7 +75,7 @@ require_once 'sqlconnection.php';
 			if($result= $conn->query($ratetrack)){ // return false if cannot insert
 				//successful
 			}else{
-				//unsuccessful -- already followed before
+				//unsuccessful -- something went wrong
 			}
 			
 			
