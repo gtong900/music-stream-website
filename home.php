@@ -52,7 +52,7 @@
 
 						while ($row=mysqli_fetch_assoc($result)) {
 							echo "<div class='listitem'>
-							      <a href='album_playlist.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/><hr class='bg-primary'></a></div>";		
+							      <a href='playlist.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/><hr class='bg-primary'></a></div>";		
 						}
 
 					}
