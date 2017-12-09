@@ -65,4 +65,4 @@ if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
 
 		
 				
-<? phprequire_once('frame_footer.php');?>
+<?php require_once('frame_footer.php');?>

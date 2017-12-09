@@ -4,6 +4,10 @@ html, body {
 	height: 100%;
 }
 
+td, h1, h2, h3, h4{
+	color: #fff;
+}
+
 
 #nowPlayingBarContainer{
 	width: 100%;

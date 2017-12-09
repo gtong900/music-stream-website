@@ -13,7 +13,6 @@
 		
 		?>
 		<form method="post" action="authenticateUser.php">
-		<body>
 		<table>
 		  <tr>
 			<td>UserName *:</td>

@@ -19,11 +19,10 @@
 						LIMIT 60;";
 						?>
 
-
 	<div class="container-fluid">
 	  <div class="row">
-	    <div class="col-md bg-danger text-white">
-	      <h3>TRACK</h3>
+	    <div class="col-md">
+	      <h3 class="text-danger">TRACK</h3>
            <div>
            	   <?php
 
@@ -33,8 +32,7 @@
 
 						while ($row=mysqli_fetch_assoc($result)) {
 							echo "<div class='listitem'>
-							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br/>".$row["artistitle"]."<br/>"."
-							      </a></div>";		
+							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br/>".$row["artistitle"]."<br/><hr class='bg-danger'></a></div>";		
 						}
 
 					}
@@ -44,8 +42,8 @@
 	      
 	    </div>
 
-	    <div class="col-md bg-primary text-white">
-	      <h3>PLAYLIST</h3>
+	    <div class="col-md">
+	      <h3 class="text-primary">PLAYLIST</h3>
 		      <div>
 		      	<?php
 
@@ -55,8 +53,7 @@
 
 						while ($row=mysqli_fetch_assoc($result)) {
 							echo "<div class='listitem'>
-							      <a href='track_details.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/>"."
-							      </a></div>";		
+							      <a href='track_details.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/><hr class='bg-primary'></a></div>";		
 						}
 
 					}
@@ -64,8 +61,8 @@
 		        ?>
 		      </div>
 	    </div>
-	    <div class="col-md bg-secondary text-white">
-	      <h3>RECENT PLAY</h3>
+	    <div class="col-md">
+	      <h3 class="text-secondary">RECENT PLAY</h3>
 	        <div>
            	   <?php
 
@@ -75,8 +72,7 @@
 
 						while ($row=mysqli_fetch_assoc($result)) {
 							echo "<div class='listitem'>
-							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br/>".$row["artistitle"]."<br/>"."
-							      </a></div>";		
+							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br/>".$row["artistitle"]."<br/><hr class='bg-secondary'></a></div>";		
 						}
 
 					}
