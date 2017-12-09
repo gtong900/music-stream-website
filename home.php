@@ -1,6 +1,5 @@
 <?php
     require_once('frame_header.php');
-    require_once('sqlconnection.php');
      //below are SQL queries
     $query_recentrack="SELECT t.trackname, ar.artistitle, t.trackid 
 						FROM ((user u natural join likes l ) natural join track t) natural join albumcontent ac  natural join album a  natural join artist ar
@@ -53,7 +52,7 @@
 
 						while ($row=mysqli_fetch_assoc($result)) {
 							echo "<div class='listitem'>
-							      <a href='track_details.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/><hr class='bg-primary'></a></div>";		
+							      <a href='album_playlist.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/><hr class='bg-primary'></a></div>";		
 						}
 
 					}

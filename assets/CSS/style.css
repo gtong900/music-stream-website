@@ -4,7 +4,7 @@ html, body {
 	height: 100%;
 }
 
-td, h1, h2, h3, h4{
+td, h1, h2, h3, h4, span{
 	color: #fff;
 }
 
@@ -47,6 +47,7 @@ td, h1, h2, h3, h4{
 
 #nowPlayingBar .content{
 	width: 100%;
+	min-width: 190px;
 }
 
 
@@ -132,4 +133,46 @@ td, h1, h2, h3, h4{
 
 .volumeBar .progressBar{
 	width: 125px;
+}
+
+
+
+
+.tracklist ul {
+    padding: 10px 0px;
+    list-style: none;
+}
+
+.tracklist li{
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.tracklistRow{
+	align-items: center;
+}
+
+
+
+li:hover {
+    background-color: #282828;
+}
+
+.tracklistContainer{
+	padding: 0;
+}
+
+.tracklist{
+	padding: 0;
+}
+
+.trackName {
+    color: #fff;
+    font-weight: bolder;
+    margin-bottom: 7px;
+}
+
+.artistName , .counter, .details{
+    color: #939393;
+    font-weight: 200;
 }
