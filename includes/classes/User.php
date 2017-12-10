@@ -53,6 +53,18 @@
 			return $result;
 		}
 		
+		public function getUserLikes(){
+			$Query = "SELECT * FROM likes WHERE username = '{$this->username}'";
+			$result = mysqli_query($this->conn,$Query);
+			return $result;
+		}
+		
+		public function getUserFollows(){
+			$Query = "SELECT * FROM follows WHERE follower = '{$this->username}'";
+			$result = mysqli_query($this->conn,$Query);
+			return $result;
+		}
+		
 		public function updateEmail(){
 			$updateQuery = 	"UPDATE user
 							SET username, uname, email, city, password";
