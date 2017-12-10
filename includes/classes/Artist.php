@@ -14,10 +14,9 @@
 			$this->conn=$conn;
 			$this->artistid=$artistid;
 			$artistQuery=mysqli_query($this->conn,"SELECT * FROM artist WHERE artistid='$this->artistid'");
-			$artist=mysqli_fetch_array($playlistQuery);
-			$this->ptitle=$playlist['ptitle'];
-			$this->powner=$playlist['powner'];
-			$this->pdate=$playlist['pdate'];
+			$artist=mysqli_fetch_array($artistQuery);
+			$this->artisttitle=$artist['artisttitle'];
+			$this->artistdescription=$artist['artistdescription'];
 		}
 
 		public function getTitle(){
@@ -30,15 +29,17 @@
 			return $this->artistdescription;
 		}
 
-		public function getNumber(){
-			$playlistQuery=mysqli_query($this->conn,"SELECT trackid, porder FROM playlistcontent WHERE pid='$this->pid'");
-			return mysqli_num_rows($playlistQuery);
+		public function getNumber(){ // get the number of tracks by this artist
+			$Query=mysqli_query($this->conn,"SELECT trackid FROM track 
+			WHERE artistid='$this->artistid' ");
+			return mysqli_num_rows($Query);
 		}
 
 		public function getTrackid(){
-			$playlistQuery=mysqli_query($this->conn,"SELECT trackid, porder FROM playlistcontent WHERE pid='$this->pid' ORDER BY porder");
+			$Query=mysqli_query($this->conn,"SELECT trackid FROM track 
+			WHERE artistid='$this->artistid' ");
 			$array=array();
-			while ($row=mysqli_fetch_array($playlistQuery)) {
+			while ($row=mysqli_fetch_array($Query)) {
 				array_push($array, $row['trackid']);
 			}
 			return $array;

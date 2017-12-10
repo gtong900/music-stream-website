@@ -1,42 +1,40 @@
 <?php 
     require_once('frame_header.php'); 
 
-	if(isset($_GET['pid'])){
-		$pid=$_GET['pid'];
+	if(isset($_GET['artistid'])){
+		$artistid=$_GET['artistid'];
 	}
 	else{
 		header("Location: home.php");
 	}
 
-	$playlist=new Playlist($conn,$pid);
+	$artist=new Artist($conn,$artistid);
 ?>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md text-primary">
-			<span class="details">Playlist:</span> &nbsp;<?php echo $playlist->getTitle() ?>
+			<span class="details">Artist:</span> &nbsp;<?php echo $artist->getTitle() ?>
 		</div>
 		<div class="col-md text-primary">
-			<span class="details">Created By</span> &nbsp; <?php echo $playlist->getOwner() ?>
+			<span class="details">Artist Description</span> &nbsp; <?php echo $artist->getDescription() ?>
 		</div>
 		<div class="col-md text-primary">
-			<?php echo $playlist->getNumber() ?>&nbsp; <span class="details">Songs</span>
+			<?php echo $artist->getNumber() ?>&nbsp; <span class="details">Songs</span>
 		</div>
-		<div class="col-md text-primary">
-			<span class="details">Created At</span> &nbsp; <?php echo $playlist->getDate() ?>
-		</div>
+		
 	</div>
 
 
 	<ul class="tracklist">
 		<?php
-		 	$trackIdArray=$playlist->getTrackid();
+		 	$trackIdArray=$artist->getTrackid();
 		 	$i=1;
 
 		 	foreach ($trackIdArray as $trackid) {
 
 
-		 		$playlistTrack=new Track($conn,$trackid);
+		 		$artistTrack=new Track($conn,$trackid);
 
 		 		echo "<li class='row tracklistRow'>
 						<div class='col-md-1'>
@@ -44,11 +42,11 @@
 						</div>
 
 						<div class='col-md-5'>
-							<span class='trackName'>" . $playlistTrack->getTrackname() . "</span>
+							<span class='trackName'>" . $artistTrack->getTrackname() . "</span>
 						</div>
 
 						<div class='col-md-2'>
-							<span class='artistName'>" . $playlistTrack->getArtistitle() . "</span>
+							<span class='artistName'>" . $artistTrack->getArtistitle() . "</span>
 						</div>
 
 						<div class='col-md-2'>
