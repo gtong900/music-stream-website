@@ -78,9 +78,11 @@
 						while ($row=mysqli_fetch_assoc($result)) {
 							$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1");
 							$artistid=mysqli_fetch_assoc($artistid);
+							
 							echo "<div class='listitem'>
-							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br/>
-								  ".$row["artistitle"]."<br/><hr class='bg-secondary'></a></div>";		
+							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br></a>
+								  <a href='artist.php?artistid=".$artistid["artistid"]."'>
+								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";		
 						}
 
 					}

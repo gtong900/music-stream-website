@@ -15,7 +15,7 @@
 			$this->artistid=$artistid;
 			$artistQuery=mysqli_query($this->conn,"SELECT * FROM artist WHERE artistid='{$this->artistid}'");
 			$artist=mysqli_fetch_array($artistQuery);
-			$this->artisttitle=$artist['artisttitle'];
+			$this->artisttitle=$artist['artistitle'];
 			$this->artistdescription=$artist['artistdescription'];
 		}
 
