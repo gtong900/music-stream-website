@@ -12,52 +12,63 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md text-primary">
-			<span class="details">Userid:</span> &nbsp;<?php echo $user->getTitle() ?>
-		</div>
+		<span class="details">Username:</span> &nbsp;<?php echo $user->getusername() ?><br>
+			</div>
 		<div class="col-md text-primary">
-			<span class="details">Artist Description</span> &nbsp; <?php echo $artist->getDescription() ?>
-		</div>
+			<span class="details">Name:</span> &nbsp;<?php echo $user->getusertitle() ?><br>
+			<span class="details">Email:</span> &nbsp;<?php echo $user->getuseremail() ?><br>
+			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity() ?><br>
+			</div>
 		<div class="col-md text-primary">
-			<?php echo $artist->getNumber() ?>&nbsp; <span class="details">Songs</span>
-		</div>
+			</div>
 		
 	</div>
 
+	    <div class="col-md">
+	      <h3 class="text-danger">TRACK</h3>
+           <div>
+           	   <?php
 
+					$userplaylist=$user->getUserAllPlaylist();
+			// check if ther are results
+			  if ($userplaylist->num_rows >0){
+				  
+				while ($row=mysqli_fetch_assoc($userplaylist)) {
+					//ptitle, pdate, powner, public
+					$pid = $row["pid"];
+					echo "<div class='listitem'>
+						  <a href='playlist.php?pid=".$pid."'><b>".$pid."</b><br></a>
+						  <a href='playlist.php?pid=".$pid."'>".$row["ptitle"]."<hr class='bg-danger'></a>
+						  
+						  </div>";		
+				}  
+			  }
+
+					
+		        ?>
+           </div>
+	      
+	    </div>
 	<ul class="tracklist">
+	 <h3 class="text-danger">Playlist:</h3>
 		<?php
-		 	$trackIdArray=$artist->getTrackid();
-		 	$i=1;
+		 	$userplaylist=$user->getUserAllPlaylist();
+			// check if ther are results
+			  if ($userplaylist->num_rows >0){
+				  
+				while ($row=mysqli_fetch_assoc($userplaylist)) {
+					//ptitle, pdate, powner, public
+					$pid = $row["pid"];
+					echo "<div class='listitem'>
+						  <a href='playlist.php?pid=".$pid."'><b>".$pid."</b><br></a>
+						  <a href='playlist.php?pid=".$pid."'>".$row["ptitle"]."<hr class='bg-danger'></a>
+						  
+						  </div>";		
+				}  
+			  }
 
-		 	foreach ($trackIdArray as $trackid) {
-
-
-		 		$artistTrack=new Track($conn,$trackid);
-
-		 		echo "<li class='row tracklistRow'>
-						<div class='col-md-1'>
-							<span class='counter'>$i</span>
-						</div>
-
-						<div class='col-md-5'>
-							<span class='trackName'>" . $artistTrack->getTrackname() . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<span class='artistName'>" . $artistTrack->getArtistitle() . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<span class=''>" . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<span class=''>" . "</span>
-						</div>						
-					  </li>";
-
-			     $i = $i + 1;
-		 	}
+			
+			
 		?>
 
 

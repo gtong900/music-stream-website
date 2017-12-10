@@ -13,7 +13,7 @@
 		public function __construct($conn,$user_name)
 		{		
 			$this->conn=$conn;
-			$this->username = $user_name;
+			$this->$username = $user_name;
 			$userQuery=mysqli_query($this->conn,"SELECT * FROM user WHERE username='{$this->username}'");
 			$user=mysqli_fetch_array($userQuery);
 			$this->usertitle=$user['uname'];
@@ -31,35 +31,24 @@
 			return $this->useremail;
 		}
 		
-		public function getusername(){
-			 
-			return $this->username;
-		}
-		
-		public function getusercity(){
+		public function getusercity){
 			 
 			return $this->usercity;
 		}
 		
-		public function getUserAllPlaylist(){
+		public function getPublicPlaylist(){
 			$userPlaylistsQuery = "SELECT * FROM playlist WHERE powner = '{$this->username}'";
-			$result = mysqli_query($this->conn,$userPlaylistsQuery);
+			$result = mysqli_fetch_array($userPlaylistsQuery);
 			return $result;
 		}
 		
-		public function getUserPublicPlaylist(){
-			$userPlaylistsQuery = "SELECT * FROM playlist WHERE powner = '{$this->username}' AND public = TRUE";
-			$result = mysqli_query($this->conn,$userPlaylistsQuery);
-			return $result;
-		}
-		
-		public function updateEmail(){
+		public function updateEmail($newEmail){
 			$updateQuery = 	"UPDATE user
-							SET username, uname, email, city, password";
+							SET username, uname, email, city, password"
 			// WIP				
 		
 		
 		}
-		
+
 	}
 ?>
