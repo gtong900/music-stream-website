@@ -31,8 +31,7 @@
 
 						while ($row=mysqli_fetch_assoc($result)) {
 							// find artistid from trackid
-							$artistquery = "SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1";
-							$artistid = mysqli_query($conn,$artistquery);
+							$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1");
 							$artistid=mysqli_fetch_assoc($artistid);
 			
 							echo "<div class='listitem'>
@@ -75,10 +74,13 @@
 					$result=mysqli_query($conn,$query_recentplay);
 
 					if(mysqli_num_rows($result)>0){
-
+						
 						while ($row=mysqli_fetch_assoc($result)) {
+							$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1");
+							$artistid=mysqli_fetch_assoc($artistid);
 							echo "<div class='listitem'>
-							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br/>".$row["artistitle"]."<br/><hr class='bg-secondary'></a></div>";		
+							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br/>
+								  ".$row["artistitle"]."<br/><hr class='bg-secondary'></a></div>";		
 						}
 
 					}

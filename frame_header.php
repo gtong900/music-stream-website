@@ -15,6 +15,7 @@
    require_once('sqlconnection.php');
    include("includes/classes/Playlist.php");
    include("includes/classes/Track.php");
+   include("includes/classes/Artist.php");
 ?>
 
 
