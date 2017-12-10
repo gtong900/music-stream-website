@@ -31,11 +31,13 @@
 
 						while ($row=mysqli_fetch_assoc($result)) {
 							// find artistid from trackid
-							$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = $row["trackid"] limit 1");
+							$artistquery = "SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1";
+							$artistid = mysqli_query($conn,$artistquery);
+							$artistid=mysqli_fetch_assoc($artistid);
 			
 							echo "<div class='listitem'>
 							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br></a>
-								  <a href='artist.php?artistid=".$artistid."'>
+								  <a href='artist.php?artistid=".$artistid["artistid"]."'><b>
 								  ".$row["artistitle"]."<br/><hr class='bg-danger'></a></div>";		
 						}
 
