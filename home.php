@@ -37,8 +37,8 @@
 			
 							echo "<div class='listitem'>
 							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br></a>
-								  <a href='artist.php?artistid=".$artistid["artistid"]."'><b>
-								  ".$row["artistitle"]."<br/><hr class='bg-danger'></a></div>";		
+								  <a href='artist.php?artistid=".$artistid["artistid"]."'>
+								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";		
 						}
 
 					}
