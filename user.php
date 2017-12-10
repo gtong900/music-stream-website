@@ -11,9 +11,9 @@
 	
 	
 	//for testing 
-	$userid = "gtong900";
+	//$username = "gtong900";
 	//$userid = $_SESSION["loginUsername"];
-	$user = new User($conn,$userid);
+	$user = new User($conn,$username);
 
 ?>
 <br>
@@ -23,10 +23,12 @@
 		<span class="details">Username:</span> &nbsp;<?php echo $user->getusername() ?><br>
 			</div>
 		<div class="col-md text-primary">
+			<?php 
+			if($isOwner){// only disply owner detail if owner is viewing own page?>
 			<span class="details">Name:</span> &nbsp;<?php echo $user->getusertitle() ?><br>
 			<span class="details">Email:</span> &nbsp;<?php echo $user->getuseremail() ?><br>
-			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity() ?><br>
-			</div>
+			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity()?><br>
+			<?php }?></div>
 		<div class="col-md text-primary">
 			</div>
 		
@@ -39,11 +41,15 @@
 	      <h3 class="text-danger">Playlists</h3>
            <div>
            	   <?php
-
-					$userplaylist=$user->getUserAllPlaylist();
-			// check if there are results
-			  if ($userplaylist->num_rows >0){
-				  
+				
+				if($isOwner){
+				$userplaylist=$user->getUserAllPlaylist();
+				}else{
+				$userplaylist=$user->getUserPublicPlaylist();	
+				}
+				// check if there are results
+				  if ($userplaylist->num_rows >0){
+					  
 				while ($row=mysqli_fetch_assoc($userplaylist)) {
 					//ptitle, pdate, powner, public
 					$pid = $row["pid"];
@@ -51,10 +57,10 @@
 						  <a href='playlist.php?pid=".$pid."'><b>".$pid."</b><br></a>
 						  <a href='playlist.php?pid=".$pid."'>".$row["ptitle"]."<hr class='bg-danger'></a>
 						  </div>";		
-				}  
-			  }else{
-				  echo "<b>None</b>";
-			  }
+					}  
+				}else{
+				echo "<hr class='bg-danger'>";
+				}
 					
 		        ?>
            </div>
@@ -79,7 +85,7 @@
 						  </div>";		
 				}  
 			  }else{
-				  echo "<b>None</b>";
+				  echo "<hr class='bg-danger'>";
 			  }
 
 		        ?>
@@ -91,19 +97,19 @@
            	   <?php
 
 					$userFollows=$user->getUserFollows();
-			// check if there are results
-			  if ($userFollows->num_rows >0){
+				// check if there are results
+				if ($userFollows->num_rows >0){
 				  
-				while ($row=mysqli_fetch_assoc($userFollows)) {
+					while ($row=mysqli_fetch_assoc($userFollows)) {
 					//ptitle, pdate, powner, public
 					$username=$row["username"];
 					echo "<div class='listitem'>
 						  <a href='user.php?username=".$username."'><b>".$username."</b><br></a><hr class='bg-danger'></a>
 						  </div>";		
-				}  
-			  }else{
-				  echo "<b>None</b>";
-			  }
+					}  
+				}else{
+				  echo "<hr class='bg-danger'>";
+				}
 					
 		        ?>
            </div>
