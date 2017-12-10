@@ -20,7 +20,7 @@
 			<span class="details">Created By</span> &nbsp; <?php echo $playlist->getOwner() ?>
 		</div>
 		<div class="col-md text-primary">
-			<?php echo $playlist->getNumber() ?>&nbsp; <span class="details">Songs</span>
+			<span class="details">Songs</span> &nbsp;<?php echo $playlist->getNumber() ?> 
 		</div>
 		<div class="col-md text-primary">
 			<span class="details">Created At</span> &nbsp; <?php echo $playlist->getDate() ?>
