@@ -4,47 +4,51 @@
 	*/
 	class User
 	{
-		private $userid;
+		private $username;
 		private $conn;
-		private $usertitel;
+		private $usertitle;
 		private $useremail;
-		private $artistdescription;
+		private $usercity;
 
-		public function __construct($conn,$artistid)
-		{
-			
+		public function __construct($conn,$user_name)
+		{		
 			$this->conn=$conn;
-			$this->$userid = $_SESSION["loginUsername"];
-			$artistQuery=mysqli_query($this->conn,"SELECT * FROM artist WHERE artistid='{$this->artistid}'");
-			$artist=mysqli_fetch_array($artistQuery);
-			$this->artisttitle=$artist['artistitle'];
-			$this->artistdescription=$artist['artistdescription'];
+			$this->$username = $user_name;
+			$userQuery=mysqli_query($this->conn,"SELECT * FROM user WHERE username='{$this->username}'");
+			$user=mysqli_fetch_array($userQuery);
+			$this->usertitle=$user['uname'];
+			$this->useremail=$user['email'];
+			$this->usercity=$user['city'];
 		}
 
-		public function getTitle(){
+		public function getusertitle(){
 			
-			return $this->artisttitle;
+			return $this->usertitle;
 		}
 
-		public function getDescription(){
-			
-			return $this->artistdescription;
+		public function getuseremail(){
+			 
+			return $this->useremail;
+		}
+		
+		public function getusercity){
+			 
+			return $this->usercity;
+		}
+		
+		public function getPublicPlaylist(){
+			$userPlaylistsQuery = "SELECT * FROM playlist WHERE powner = '{$this->username}'";
+			$result = mysqli_fetch_array($userPlaylistsQuery);
+			return $result;
+		}
+		
+		public function updateEmail($newEmail){
+			$updateQuery = 	"UPDATE user
+							SET username, uname, email, city, password"
+			// WIP				
+		
+		
 		}
 
-		public function getNumber(){ // get the number of tracks by this artist
-			$Query=mysqli_query($this->conn,"SELECT trackid FROM track 
-			WHERE artistid='$this->artistid' ");
-			return mysqli_num_rows($Query);
-		}
-
-		public function getTrackid(){
-			$Query=mysqli_query($this->conn,"SELECT trackid FROM track 
-			WHERE artistid='$this->artistid' ");
-			$array=array();
-			while ($row=mysqli_fetch_array($Query)) {
-				array_push($array, $row['trackid']);
-			}
-			return $array;
-		}
 	}
 ?>

@@ -16,6 +16,7 @@
    include("includes/classes/Playlist.php");
    include("includes/classes/Track.php");
    include("includes/classes/Artist.php");
+   include("includes/classes/User.php");
 ?>
 
 

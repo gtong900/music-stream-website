@@ -3,6 +3,7 @@
 
 	// should check session first. if not go back to index.php
 	$userid = $_SESSION["loginUsername"];
+	$user = new User($conn,$userid);
 
 ?>
 
