@@ -2,7 +2,7 @@
 	/**
 	* 
 	*/
-	class classArtist
+	class Artist
 	{
 		private $conn;
 		private $artistid;
