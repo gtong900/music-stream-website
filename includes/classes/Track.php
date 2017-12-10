@@ -21,6 +21,7 @@
 			$this->trackname=$track['trackname'];
 			$this->trackduration=$track['trackduration'];
 			$this->artistitle=$track['artistitle'];
+			$this->artistid=$track['artistid'];
 		}
 
 		public function getTrackname(){
@@ -37,6 +38,11 @@
 		public function getArtistitle(){
 			
 			return $this->artistitle;
+		}
+
+		public function getArtistid(){
+			
+			return $this->artistid;
 		}
 	}
 ?>

@@ -58,10 +58,11 @@ td, h1, h2, h3, h4, span{
   border-radius: 0;
 }
 
-.listitem a {
+.listitem a, .tracklist a{
   text-decoration: none;
   color: white;
 }
+
 
 .playerControls .buttons{
 	margin: 0 auto;
@@ -173,3 +174,35 @@ td, h1, h2, h3, h4, span{
     color: #939393;
     font-weight: 200;
 }
+
+.optionsMenu{
+    color: white;
+    position: fixed;
+    background-color: #282828;
+    width: 150px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+}
+
+.item{
+	width: 100%;
+	padding: 12px 20px;
+    box-sizing: border-box;;
+    font-weight: 400;
+    color: rgba(147,147,147,0.8);
+    cursor: pointer;;
+    height: 40px;
+}
+
+.optionsMenu .item:hover{
+	color: #fff;
+	background: #333;
+	border-color: #333;
+}
+
+.optionsButton{
+	height: 18px;
+}
+

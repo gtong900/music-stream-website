@@ -48,11 +48,11 @@
 						</div>
 
 						<div class='col-md-2'>
-							<span class='artistName'>" . $playlistTrack->getArtistitle() . "</span>
+							<a href='artist.php?artistid=".$playlistTrack->getArtistid()."'><span class='artistName'>" . $playlistTrack->getArtistitle() . "</span></a>
 						</div>
 
 						<div class='col-md-2'>
-							<span class=''>" . "</span>
+							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
 						</div>
 
 						<div class='col-md-2'>
@@ -66,10 +66,12 @@
 
 
 	</ul>
-
-
 </div>
-
+<nav class="optionsMenu">
+	<input type="hidden" name="songId">
+	<div class="item">add to playlist</div>
+	<div class="item">like this artist</div>
+</nav>
 
 
 <?php require_once('frame_footer.php'); ?>
