@@ -37,7 +37,7 @@
         <a class="nav-link" href="#">History</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Account</a>
+        <a class="nav-link" href="user.php">Account</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"></a>
