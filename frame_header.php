@@ -18,6 +18,7 @@
    include("includes/classes/Playlist.php");
    include("includes/classes/Track.php");
    include("includes/classes/Artist.php");
+   include("includes/classes/User.php");
 ?>
 
 
@@ -39,7 +40,7 @@
         <a class="nav-link" href="#">History</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Account</a>
+        <a class="nav-link" href="user.php">Account</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"></a>
