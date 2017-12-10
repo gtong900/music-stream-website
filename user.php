@@ -2,7 +2,9 @@
     require_once('frame_header.php'); 
 
 	// should check session first. if not go back to index.php
-	$userid = $_SESSION["loginUsername"];
+	//for testing 
+	$userid = "gtong900";
+	//$userid = $_SESSION["loginUsername"];
 	$user = new User($conn,$userid);
 
 ?>
@@ -10,7 +12,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md text-primary">
-			<span class="details">Userid:</span> &nbsp;<?php echo $artist->getTitle() ?>
+			<span class="details">Userid:</span> &nbsp;<?php echo $user->getTitle() ?>
 		</div>
 		<div class="col-md text-primary">
 			<span class="details">Artist Description</span> &nbsp; <?php echo $artist->getDescription() ?>
