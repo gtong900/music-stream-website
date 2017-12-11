@@ -11,6 +11,12 @@ $(window).scroll(function(){
 });
 
 
+$(document).on("click", ".t", function(click) {
+	var target=$(click.target);
+	var trackid=target.prevAll(".td").val();
+	$("iframe").attr('src', "https://open.spotify.com/embed?uri=spotify%3Atrack%3A"+trackid);	
+});
+
 $(document).on("click", ".dropdown-item", function(click) {
 	var target=$(click.target);
 	var playlistId=target.prevAll(".playlistId").val();

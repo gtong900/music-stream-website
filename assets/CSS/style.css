@@ -189,10 +189,10 @@ td, h1, h2, h3, h4, span{
 .item{
 	width: 100%;
 	padding: 12px 20px;
-    box-sizing: border-box;;
+    box-sizing: border-box;
     font-weight: 400;
     color: rgba(147,147,147,0.8);
-    cursor: pointer;;
+    cursor: pointer;
     height: 40px;
 }
 
@@ -205,13 +205,14 @@ td, h1, h2, h3, h4, span{
 
 .optionsButton{
 	height: 18px;
-	z-index: 500;
+    cursor: pointer;
 }
 
 .dropdown button{
 	padding: 0px;
 	color: rgba(147,147,147,0.8);
 	background-color: #282828;
+	cursor: pointer;
 
 }
 
@@ -231,4 +232,8 @@ td, h1, h2, h3, h4, span{
 
 .unimportant{
 	color: #666464;
+}
+
+.t{
+	cursor: pointer;
 }

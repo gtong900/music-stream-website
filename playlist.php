@@ -44,7 +44,8 @@
 						</div>
 
 						<div class='col-md-5'>
-							<span class='trackName'>" . $playlistTrack->getTrackname() . "</span>
+						    <input type='hidden' class='td' value='$trackid'>
+							<span class='trackName t'>" . $playlistTrack->getTrackname() . "</span>
 						</div>
 
 						<div class='col-md-2'>
