@@ -220,6 +220,6 @@ td, h1, h2, h3, h4, span{
 	border-color: #282828;
 }
 
-.dropdown-menu a{
+.dropdown-menu span{
 	color: rgb(0, 123, 228);
 }

@@ -1,7 +1,7 @@
 $(document).click(function(click) {
 	var target = $(click.target);
 
-	if(!target.hasClass("item") && !target.hasClass("optionsButton") && !target.hasClass("dropdown-item")) {
+	if(!target.hasClass("item") && !target.hasClass("optionsButton")) {
 		hideOptionsMenu();
 	}
 });
@@ -20,6 +20,9 @@ $(document).on("click", ".dropdown-item", function(click) {
 		if (error!="") {
 			alert(error);
 			return;
+		}
+		else{
+			alert('Track added.');
 		}
 	});
 
