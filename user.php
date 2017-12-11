@@ -16,7 +16,6 @@
 	$user = new User($conn,$userid);
 
 ?>
-<br>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md text-primary">
@@ -24,12 +23,13 @@
 			</div>
 		<div class="col-md text-primary">
 			<span class="details">Name:</span> &nbsp;<?php echo $user->getusertitle() ?><br>
-			<span class="details">Email:</span> &nbsp;<?php echo $user->getuseremail() ?><br>
-			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity() ?><br>
 			</div>
 		<div class="col-md text-primary">
+			<span class="details">Email:</span> &nbsp;<?php echo $user->getuseremail() ?><br>			
 			</div>
-		
+		<div class="col-md text-primary">
+			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity() ?><br>		
+			</div>
 	</div>
 </div>
 <br>
@@ -38,6 +38,13 @@
 	    <div class="col-md">
 	      <h3 class="text-danger">Playlists</h3>
            <div>
+
+           	  <div class='listitem'>
+           	  	<input type="text" name="fname" placeholder="Create New Playlist" required/>
+			    <img src='assets/images/icons/add.png' class='add'>
+			    <hr class='bg-danger'>
+			  </div>"
+
            	   <?php
 
 					$userplaylist=$user->getUserAllPlaylist();
@@ -47,9 +54,14 @@
 				while ($row=mysqli_fetch_assoc($userplaylist)) {
 					//ptitle, pdate, powner, public
 					$pid = $row["pid"];
+					$playlist=new Playlist($conn,$pid);
+					$number=$playlist->getNumber();
 					echo "<div class='listitem'>
-						  <a href='playlist.php?pid=".$pid."'><b>".$pid."</b><br></a>
-						  <a href='playlist.php?pid=".$pid."'>".$row["ptitle"]."<hr class='bg-danger'></a>
+						    <a href='playlist.php?pid=$pid'><b>".$row["ptitle"]."</b> &nbsp;
+						    <span class='unimportant'>$number Songs</span>
+						    </a>
+						    <img src='assets/images/icons/delete.png' class='delete'>
+						    <hr class='bg-danger'>
 						  </div>";		
 				}  
 			  }else{
@@ -75,7 +87,9 @@
 					$artistid = $row["artistid"];
 					$artist = new Artist($conn,$artistid);
 					echo "<div class='listitem'>
-						  <a href='artist.php?artistid=".$artistid."'><b>".$artist->getTitle()."</b><br></a><hr class='bg-danger'></a>
+						  <a href='artist.php?artistid=$artistid'><b>".$artist->getTitle()."</b></a>
+						  <img src='assets/images/icons/delete.png' class='unlike'>
+						  <hr class='bg-primary'>
 						  </div>";		
 				}  
 			  }else{
@@ -98,7 +112,9 @@
 					//ptitle, pdate, powner, public
 					$username=$row["username"];
 					echo "<div class='listitem'>
-						  <a href='user.php?username=".$username."'><b>".$username."</b><br></a><hr class='bg-danger'></a>
+						  <a href='user.php?username=$username'><b>".$username."</b></a>
+                          <img src='assets/images/icons/delete.png' class='unfollow'>
+						  <hr class='bg-secondary'>
 						  </div>";		
 				}  
 			  }else{
