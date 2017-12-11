@@ -14,14 +14,19 @@
 		{
 			$this->conn=$conn;
 			$this->trackid=$trackid;
-			$trackQuery=mysqli_query($this->conn,"SELECT *
-										FROM track t natural join artist a
-										WHERE t.trackid='$this->trackid';");
-			$track=mysqli_fetch_array($trackQuery);
+			//$track =array();
+			$track= $this->getTrackInfo($trackid);
 			$this->trackname=$track['trackname'];
 			$this->trackduration=$track['trackduration'];
 			$this->artistitle=$track['artistitle'];
 			$this->artistid=$track['artistid'];
+		}
+		
+		public function getTrackInfo($id){
+			$trackQuery=mysqli_query($this->conn,"SELECT *
+										FROM track t natural join artist a
+										WHERE t.trackid='$id';");
+			return mysqli_fetch_array($trackQuery);
 		}
 
 		public function getTrackname(){
@@ -43,6 +48,60 @@
 		public function getArtistid(){
 			
 			return $this->artistid;
+		}
+		
+		public function printTracks($trackIdArray){
+			$i=1;
+			//heading
+			echo "<li class='row tracklistRow'>
+						<div class='col-md-1'>
+							<span class='counter'>Number</span>
+						</div>
+
+						<div class='col-md-5'>
+							<span class='trackName'>Name</span>
+						</div>
+
+						<div class='col-md-2'>
+							<span class='trackName'>Artist</span>
+						</div>
+
+						<div class='col-md-2'>
+							<span class='trackName'>Options</span>
+						</div>
+
+						<div class='col-md-2'>
+							<span class='trackName'>Duration</span>
+						</div>						
+					  </li>";
+
+		 	foreach ($trackIdArray as $trackid) {
+				$track= $this->getTrackInfo($trackid);
+		 		//$Tracks=$this->getTrackInfo($trackid);
+				echo "<li class='row tracklistRow'>
+						<div class='col-md-1'>
+							<span class='counter'>$i</span>
+						</div>
+
+						<div class='col-md-5'>
+							<span class='trackName'>" . $track['trackname'] . "</span>
+						</div>
+
+						<div class='col-md-2'>
+							<a href='artist.php?artistid=".$track['artistid']."'><span class='artistName'>".$track['artistitle']."</span></a>
+						</div>
+
+						<div class='col-md-2'>
+							<input type='hidden' class='trackId' value='$trackid'>
+							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
+						</div>
+
+						<div class='col-md-2'>
+							<span class=''>"."</span>
+						</div>						
+					  </li>";
+					   $i = $i + 1;
+			}	  
 		}
 	}
 ?>
