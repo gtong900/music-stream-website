@@ -31,16 +31,16 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="home.php">Home</a>
+        <a class="nav-link" href="user.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Explore</a>
+        <a class="nav-link" href="foryou.php">For You</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">History</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="user.php">Account</a>
+        <a class="nav-link" href="">Account</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"></a>
