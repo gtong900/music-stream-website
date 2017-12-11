@@ -30,13 +30,12 @@
 		<?php
 		 	$trackIdArray=$artist->getTrackid();
 		 	$i=1;
-
+			$array =array();
 		 	foreach ($trackIdArray as $trackid) {
 
-
 		 		$artistTrack=new Track($conn,$trackid);
-
-		 		echo "<li class='row tracklistRow'>
+				array_push($array,$trackid);
+		 		/*echo "<li class='row tracklistRow'>
 						<div class='col-md-1'>
 							<span class='counter'>$i</span>
 						</div>
@@ -57,9 +56,11 @@
 							<span class=''>" . "</span>
 						</div>						
 					  </li>";
+					  
 
-			     $i = $i + 1;
+			     $i = $i + 1;*/
 		 	}
+			Track::printTracks($conn,$array,true);
 		?>
 
 

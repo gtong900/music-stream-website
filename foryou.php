@@ -40,9 +40,7 @@
 								  <a href='artist.php?artistid=".$artistid["artistid"]."'>
 								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";	*/	
 						}
-					//$trackIdArray=$album->getTrackid();
-					$track = new Track($conn,1);
-					$track->printTracks($array,false);
+					Track::printTracks($conn,$array,false);
 				
 					}
 					
@@ -89,10 +87,7 @@
 								  <a href='artist.php?artistid=".$artistid["artistid"]."'>
 								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";*/		
 						}
-						$track = new Track($conn,1);
-					$track->printTracks($array,false);
-					
-
+					Track::printTracks($conn,$array,false);
 					}
 					
 		        ?>

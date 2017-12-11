@@ -15,15 +15,15 @@
 			$this->conn=$conn;
 			$this->trackid=$trackid;
 			//$track =array();
-			$track= $this->getTrackInfo($trackid);
+			$track= $this->getTrackInfo($this->conn,$trackid);
 			$this->trackname=$track['trackname'];
 			$this->trackduration=$track['trackduration'];
 			$this->artistitle=$track['artistitle'];
 			$this->artistid=$track['artistid'];
 		}
 		
-		public function getTrackInfo($id){
-			$trackQuery=mysqli_query($this->conn,"SELECT *
+		public function getTrackInfo($conn,$id){
+			$trackQuery=mysqli_query($conn,"SELECT *
 										FROM track t natural join artist a
 										WHERE t.trackid='$id';");
 			return mysqli_fetch_array($trackQuery);
@@ -50,7 +50,7 @@
 			return $this->artistid;
 		}
 		
-		public function printTracks($trackIdArray,$wantDuration){
+		public function printTracks($conn,$trackIdArray,$wantDuration){
 			$i=1;
 			//heading
 			echo "<li class='row tracklistRow'>
@@ -77,8 +77,8 @@
 					  echo"</li>";
 
 		 	foreach ($trackIdArray as $trackid) {
-				$track= $this->getTrackInfo($trackid);
-		 		//$Tracks=$this->getTrackInfo($trackid);
+				$track= Track::getTrackInfo($conn,$trackid);
+				$duration = date("i:s",floor($track['trackduration']/1000));
 				echo "<li class='row tracklistRow'>
 						<div class='col-md-1'>
 							<span class='counter'>$i</span>
@@ -99,12 +99,13 @@
 						if($wantDuration){
 						
 						echo "<div class='col-md-2'>
-							<span class=''>"."</span>
+							<span class=''>".$duration ."</span>
 						</div>";		
 						}
-						echo "</li><hr class='bg-danger'>";
+						//echo "</li><hr class='bg-danger'>";
 					   $i = $i + 1;
-			}	  
+			}
+			
 		}
 	}
 ?>
