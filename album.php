@@ -1,75 +1,47 @@
-<?php 
-    require_once('frame_header.php'); 
+<?php
+	/**
+	* 
+	*/
+	class Album
+	{
+		private $conn;
+		private $albumid;
+		private $artisttitle;
+		private $artistdescription;
+		private $num_ofTracks;
 
-	if(isset($_GET['pid'])){
-		$pid=$_GET['pid'];
-	}
-	else{
-		header("Location: home.php");
-	}
+		public function __construct($conn,$albumid)
+		{
+			$this->conn=$conn;
+			$this->albumid=$albumid;
+			$albumQuery=mysqli_query($this->conn,"SELECT * FROM album WHERE albumid='{$this->albumid}'");
+			$album=mysqli_fetch_array($albumQuery);
+			$this->albumname=$album['albumname'];
+			$this->albumreleasedate=$album['albumreleasedate'];			
+			$albumContentQuery=mysqli_query($this->conn,"SELECT * FROM Albumcontent WHERE albumid='{$this->albumid}'");
+			$num_ofTracks=mysqli_num_rows($albumContentQuery);
+		}
 
-	$playlist=new Playlist($conn,$pid);
+		public function getalbumname(){
+			
+			return $this->albumname;
+		}
+
+		public function getAlbumReleaseDate(){
+			
+			return $this->albumreleasedate;
+		}
+		
+		public function getNumber(){ // get the number of tracks in this album
+			return $this->num_ofTracks;
+		}
+
+		public function getTrackid(){
+			$array=array();
+			while ($row=mysqli_fetch_array($Query)) {
+				array_push($array, $row['trackid']);
+			}
+			return $array;
+		}
+	}
 ?>
-
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md text-primary">
-			<span class="details">Album:</span> &nbsp;<?php echo $playlist->getTitle() ?>
-		</div>
-		<div class="col-md text-primary">
-			<span class="details">Created By</span> &nbsp; <?php echo $playlist->getOwner() ?>
-		</div>
-		<div class="col-md text-primary">
-			<?php echo $playlist->getNumber() ?>&nbsp; <span class="details">Songs</span>
-		</div>
-		<div class="col-md text-primary">
-			<span class="details">Created At</span> &nbsp; <?php echo $playlist->getDate() ?>
-		</div>
-	</div>
-
-
-	<ul class="tracklist">
-		<?php
-		 	$trackIdArray=$playlist->getTrackid();
-		 	$i=1;
-
-		 	foreach ($trackIdArray as $trackid) {
-
-
-		 		$playlistTrack=new Track($conn,$trackid);
-
-		 		echo "<li class='row tracklistRow'>
-						<div class='col-md-1'>
-							<span class='counter'>$i</span>
-						</div>
-
-						<div class='col-md-5'>
-							<span class='trackName'>" . $playlistTrack->getTrackname() . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<span class='artistName'>" . $playlistTrack->getArtistitle() . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<span class=''>" . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<span class=''>" . "</span>
-						</div>						
-					  </li>";
-
-			     $i = $i + 1;
-		 	}
-		?>
-
-
-	</ul>
-
-
-</div>
-
-
-
-<?php require_once('frame_footer.php'); ?>
