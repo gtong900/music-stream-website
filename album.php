@@ -1,36 +1,33 @@
 <?php 
     require_once('frame_header.php'); 
 
-	if(isset($_GET['pid'])){
-		$pid=$_GET['pid'];
+	if(isset($_GET['albumid'])){
+		$albumid=$_GET['albumid'];
 	}
 	else{
 		header("Location: home.php");
 	}
 
-	$playlist=new Playlist($conn,$pid);
+	$album=new Album($conn,$albumid);
 ?>
-
+<br>
 <div class="container-fluid">
 	<div class="row">
+	
 		<div class="col-md text-primary">
-			<span class="details">Album:</span> &nbsp;<?php echo $playlist->getTitle() ?>
+			<span class="details">Album:</span> &nbsp;<?php echo $album->getalbumname() ?>
 		</div>
 		<div class="col-md text-primary">
-			<span class="details">Created By</span> &nbsp; <?php echo $playlist->getOwner() ?>
+			<?php echo $album->getNumber() ?>&nbsp; <span class="details">Songs</span>
 		</div>
 		<div class="col-md text-primary">
-			<?php echo $playlist->getNumber() ?>&nbsp; <span class="details">Songs</span>
-		</div>
-		<div class="col-md text-primary">
-			<span class="details">Created At</span> &nbsp; <?php echo $playlist->getDate() ?>
+			<span class="details">Release Date</span> &nbsp; <?php echo $album->getAlbumReleaseDate() ?>
 		</div>
 	</div>
 
-
-	<ul class="tracklist">
+<ul class="tracklist">
 		<?php
-		 	$trackIdArray=$playlist->getTrackid();
+		 	$trackIdArray=$album->getTrackid();
 		 	$i=1;
 
 		 	foreach ($trackIdArray as $trackid) {
@@ -48,15 +45,16 @@
 						</div>
 
 						<div class='col-md-2'>
-							<span class='artistName'>" . $playlistTrack->getArtistitle() . "</span>
+							<a href='artist.php?artistid=".$playlistTrack->getArtistid()."'><span class='artistName'>" . $playlistTrack->getArtistitle() . "</span></a>
 						</div>
 
 						<div class='col-md-2'>
-							<span class=''>" . "</span>
+							<input type='hidden' class='trackId' value='$trackid'>
+							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
 						</div>
 
 						<div class='col-md-2'>
-							<span class=''>" . "</span>
+							<span class=''>"."</span>
 						</div>						
 					  </li>";
 
@@ -66,7 +64,7 @@
 
 
 	</ul>
-
+	
 
 </div>
 
