@@ -22,7 +22,9 @@ $(document).on("click", ".dropdown-item", function(click) {
 			return;
 		}
 		else{
+			hideOptionsMenu();
 			alert('Track added.');
+
 		}
 	});
 
