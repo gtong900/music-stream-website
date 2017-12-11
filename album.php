@@ -1,27 +1,29 @@
 <?php 
     require_once('frame_header.php'); 
 
-	if(isset($_GET['albumid'])){
-		$albumid=$_GET['albumid'];
+	if(isset($_GET['pid'])){
+		$pid=$_GET['pid'];
 	}
 	else{
 		header("Location: home.php");
 	}
 
-	$album=new Album($conn,$albumid);
+	$playlist=new Playlist($conn,$pid);
 ?>
-<br>
+
 <div class="container-fluid">
 	<div class="row">
-	
 		<div class="col-md text-primary">
-			<span class="details">Album:</span> &nbsp;<?php echo $album->getalbumname() ?>
+			<span class="details">Album:</span> &nbsp;<?php echo $playlist->getTitle() ?>
 		</div>
 		<div class="col-md text-primary">
-			<?php echo $album->getNumber() ?>&nbsp; <span class="details">Songs</span>
+			<span class="details">Created By</span> &nbsp; <?php echo $playlist->getOwner() ?>
 		</div>
 		<div class="col-md text-primary">
-			<span class="details">Release Date</span> &nbsp; <?php echo $album->getAlbumReleaseDate() ?>
+			<?php echo $playlist->getNumber() ?>&nbsp; <span class="details">Songs</span>
+		</div>
+		<div class="col-md text-primary">
+			<span class="details">Created At</span> &nbsp; <?php echo $playlist->getDate() ?>
 		</div>
 	</div>
 
