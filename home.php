@@ -21,7 +21,7 @@
 	<div class="container-fluid">
 	  <div class="row">
 	    <div class="col-md">
-	      <h3 class="text-danger">TRACK</h3>
+	      <h3 class="text-danger">LATEST TRACKS FROM LIKED ARTISTS</h3>
            <div>
            	   <?php
 
@@ -35,7 +35,7 @@
 							$artistid=mysqli_fetch_assoc($artistid);
 			
 							echo "<div class='listitem'>
-							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br></a>
+							      <a href='track_details.php?trackid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br></a>
 								  <a href='artist.php?artistid=".$artistid["artistid"]."'>
 								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";		
 						}
@@ -48,7 +48,7 @@
 	    </div>
 
 	    <div class="col-md">
-	      <h3 class="text-primary">PLAYLIST</h3>
+	      <h3 class="text-primary">LATEST PLAYLIST FROM USERS FOLLOWED</h3>
 		      <div>
 		      	<?php
 

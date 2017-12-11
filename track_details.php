@@ -3,17 +3,9 @@
 
 	// should check session first. if not go back to index.php
 	
-	$isOwner = true;
-	if(isset($_GET['username'])){
-		$username=$_GET['username'];
-		$isOwner = false;
-	}
-	
-	
-	//for testing 
-	$username = "gtong900";
-	//$userid = $_SESSION["loginUsername"];
-	$user = new User($conn,$username);
+
+		$trackid=$_GET['trackid'];
+		
 
 ?>
 <br>
