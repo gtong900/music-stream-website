@@ -223,3 +223,12 @@ td, h1, h2, h3, h4, span{
 .dropdown-menu span{
 	color: rgb(0, 123, 228);
 }
+
+.unlike, .unfollow, .delete, .add{
+	width: 20px;
+	float: right;
+}
+
+.unimportant{
+	color: #666464;
+}
