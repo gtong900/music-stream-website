@@ -21,7 +21,7 @@
 	<div class="container-fluid">
 	  <div class="row">
 	    <div class="col-md">
-	      <h3 class="text-danger">TRACK</h3>
+	      <h3 class="text-danger">RECENT LIKED ARTIST TRACKS</h3>
            <div>
            	   <?php
 
@@ -43,7 +43,7 @@
 					//$trackIdArray=$album->getTrackid();
 					$track = new Track($conn,1);
 					$track->printTracks($array,false);
-					echo "<hr class='bg-danger'>";
+				
 					}
 					
 		        ?>
@@ -52,7 +52,7 @@
 	    </div>
 
 	    <div class="col-md">
-	      <h3 class="text-primary">PLAYLIST</h3>
+	      <h3 class="text-primary">RECENT PLAYLIST FOLLOWED</h3>
 		      <div>
 		      	<?php
 
@@ -91,7 +91,7 @@
 						}
 						$track = new Track($conn,1);
 					$track->printTracks($array,false);
-					echo "<hr class='bg-danger'>";
+					
 
 					}
 					

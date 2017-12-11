@@ -102,7 +102,7 @@
 							<span class=''>"."</span>
 						</div>";		
 						}
-						echo "</li>";
+						echo "</li><hr class='bg-danger'>";
 					   $i = $i + 1;
 			}	  
 		}
