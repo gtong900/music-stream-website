@@ -55,7 +55,22 @@ $(document).on("click", ".add", function(click) {
 	}
 });
 
+$(document).on("click", ".delete", function(click) {
+	var target=$(click.target);
+	var pId=target.prevAll("input").val();
+	$.post("includes/handlers/ajax/deletePlaylist.php",{pId:pId})
+	.done(function(error){
+		if (error!="") {
+			alert(error);
+			return;
+		}
+		else{
+			alert('Playlist deleted.');
+			window.location.reload(false); 
+		}
+	});
 
+});
 
 
 function showOptionMenu(button){

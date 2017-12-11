@@ -4,7 +4,7 @@
 		 $newPlaylist=$_POST['newPlaylist'];
 		 $userId=$_POST['userId'];
 		 $currenTime=$_POST['currenTime'];
-		 $orderIdQuery=mysqli_query($conn,"INSERT INTO playlist (ptitle, pdate, powner, public) VALUES ('$newPlaylist', '$currenTime', '$userId', '1');");
+		 $query=mysqli_query($conn,"INSERT INTO playlist (ptitle, pdate, powner, public) VALUES ('$newPlaylist', '$currenTime', '$userId', '1');");
 	}
 	else{
 		echo "#ERROR: Not set up.";

@@ -58,6 +58,7 @@
 					$playlist=new Playlist($conn,$pid);
 					$number=$playlist->getNumber();
 					echo "<div class='listitem'>
+							<input type='hidden' class='pid' value='$pid'>
 						    <a href='playlist.php?pid=$pid'><b>".$row["ptitle"]."</b> &nbsp;
 						    <span class='unimportant'>$number Songs</span>
 						    </a>
