@@ -55,14 +55,15 @@
 		      	<?php
 
 					$result=mysqli_query($conn,$query_recentlist);
-
+			
 					if(mysqli_num_rows($result)>0){
-
+						$array = array();	
 						while ($row=mysqli_fetch_assoc($result)) {
-							echo "<div class='listitem'>
-							      <a href='playlist.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/><hr class='bg-primary'></a></div>";		
+							array_push($array,$row["pid"]);
+							//echo "<div class='listitem'>
+							//      <a href='playlist.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b><br/>".$row["powner"]."<br/><hr class='bg-primary'></a></div>";		
 						}
-
+					Playlist::printPlaylist($conn,$array,false);
 					}
 
 		        ?>
