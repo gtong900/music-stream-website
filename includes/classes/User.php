@@ -13,7 +13,7 @@
 		public function __construct($conn,$user_name)
 		{		
 			$this->conn=$conn;
-			$this->$username = $user_name;
+			$this->username = $user_name;
 			$userQuery=mysqli_query($this->conn,"SELECT * FROM user WHERE username='{$this->username}'");
 			$user=mysqli_fetch_array($userQuery);
 			$this->usertitle=$user['uname'];
@@ -31,24 +31,47 @@
 			return $this->useremail;
 		}
 		
-		public function getusercity){
+		public function getusername(){
+			 
+			return $this->username;
+		}
+		
+		public function getusercity(){
 			 
 			return $this->usercity;
 		}
 		
-		public function getPublicPlaylist(){
+		public function getUserAllPlaylist(){
 			$userPlaylistsQuery = "SELECT * FROM playlist WHERE powner = '{$this->username}'";
-			$result = mysqli_fetch_array($userPlaylistsQuery);
+			$result = mysqli_query($this->conn,$userPlaylistsQuery);
 			return $result;
 		}
 		
-		public function updateEmail($newEmail){
+		public function getUserPublicPlaylist(){
+			$userPlaylistsQuery = "SELECT * FROM playlist WHERE powner = '{$this->username}' AND public = TRUE";
+			$result = mysqli_query($this->conn,$userPlaylistsQuery);
+			return $result;
+		}
+		
+		public function getUserLikes(){
+			$Query = "SELECT * FROM likes WHERE username = '{$this->username}'";
+			$result = mysqli_query($this->conn,$Query);
+			return $result;
+		}
+		
+		public function getUserFollows(){
+			$Query = "SELECT * FROM follows WHERE follower = '{$this->username}'";
+			$result = mysqli_query($this->conn,$Query);
+			return $result;
+		}
+		
+		public function updateEmail(){
 			$updateQuery = 	"UPDATE user
-							SET username, uname, email, city, password"
+							SET username, uname, email, city, password";
 			// WIP				
 		
 		
 		}
-
+		
 	}
 ?>
