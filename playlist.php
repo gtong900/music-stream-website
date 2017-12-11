@@ -52,6 +52,7 @@
 						</div>
 
 						<div class='col-md-2'>
+							<input type='hidden' class='trackId' value='$trackid'>
 							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
 						</div>
 
@@ -68,9 +69,11 @@
 	</ul>
 </div>
 <nav class="optionsMenu">
-	<input type="hidden" name="songId">
-	<div class="item">add to playlist</div>
-	<div class="item">like this artist</div>
+	<input type="hidden" class="songId">
+	<div class="item">
+	<?php echo Playlist::getPlaylistsDropdown($conn,'gtong900'); ?>
+    </div>
+	<div class="item" id="like">Like this artist</div>
 </nav>
 
 

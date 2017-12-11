@@ -49,5 +49,23 @@
 			}
 			return $array;
 		}
+
+		public static function getPlaylistsDropdown($conn,$username){
+			$dropdown='	<div class="dropdown">
+						<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Add to playlist</button>
+						<div class="dropdown-menu dropdown-menu-left">';
+			$query=mysqli_query($conn,"SELECT p.pid, p.ptitle
+										FROM playlist p
+										WHERE powner='$username'
+										ORDER BY p.pdate");
+			while ($row=mysqli_fetch_array($query)) {
+				$pid=$row['pid'];
+				$ptitle=$row['ptitle'];
+				$dropdown=$dropdown."<input type='hidden' class='playlistId' value='$pid'>
+										<span class='dropdown-item'>$ptitle</span>";
+			}
+			return $dropdown."</div>
+							</div>";
+		}
 	}
 ?>
