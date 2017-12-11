@@ -25,10 +25,9 @@
 		</div>
 	</div>
 
-
-	<ul class="tracklist">
+<ul class="tracklist">
 		<?php
-		 	$trackIdArray=$playlist->getTrackid();
+		 	$trackIdArray=$album->getTrackid();
 		 	$i=1;
 
 		 	foreach ($trackIdArray as $trackid) {
@@ -46,15 +45,16 @@
 						</div>
 
 						<div class='col-md-2'>
-							<span class='artistName'>" . $playlistTrack->getArtistitle() . "</span>
+							<a href='artist.php?artistid=".$playlistTrack->getArtistid()."'><span class='artistName'>" . $playlistTrack->getArtistitle() . "</span></a>
 						</div>
 
 						<div class='col-md-2'>
-							<span class=''>" . "</span>
+							<input type='hidden' class='trackId' value='$trackid'>
+							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
 						</div>
 
 						<div class='col-md-2'>
-							<span class=''>" . "</span>
+							<span class=''>"."</span>
 						</div>						
 					  </li>";
 
@@ -64,7 +64,7 @@
 
 
 	</ul>
-
+	
 
 </div>
 
