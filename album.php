@@ -29,7 +29,7 @@
 		<?php
 		 	$trackIdArray=$album->getTrackid();
 			$track = new Track($conn,1);
-		 	$track->printTracks($trackIdArray);
+		 	$track->printTracks($trackIdArray,false);
 		?>
 
 

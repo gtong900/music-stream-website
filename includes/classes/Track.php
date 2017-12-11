@@ -50,12 +50,12 @@
 			return $this->artistid;
 		}
 		
-		public function printTracks($trackIdArray){
+		public function printTracks($trackIdArray,$wantDuration){
 			$i=1;
 			//heading
 			echo "<li class='row tracklistRow'>
 						<div class='col-md-1'>
-							<span class='counter'>Number</span>
+							<span class='counter'></span>
 						</div>
 
 						<div class='col-md-5'>
@@ -68,12 +68,13 @@
 
 						<div class='col-md-2'>
 							<span class='trackName'>Options</span>
-						</div>
-
-						<div class='col-md-2'>
+						</div>";
+						if($wantDuration){
+						echo"<div class='col-md-2'>
 							<span class='trackName'>Duration</span>
-						</div>						
-					  </li>";
+						</div>";
+						}						
+					  echo"</li>";
 
 		 	foreach ($trackIdArray as $trackid) {
 				$track= $this->getTrackInfo($trackid);
@@ -94,12 +95,14 @@
 						<div class='col-md-2'>
 							<input type='hidden' class='trackId' value='$trackid'>
 							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
-						</div>
-
-						<div class='col-md-2'>
+						</div>";
+						if($wantDuration){
+						
+						echo "<div class='col-md-2'>
 							<span class=''>"."</span>
-						</div>						
-					  </li>";
+						</div>";		
+						}
+						echo "</li>";
 					   $i = $i + 1;
 			}	  
 		}

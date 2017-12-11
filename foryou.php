@@ -28,18 +28,22 @@
 					$result=mysqli_query($conn,$query_recentrack);
 
 					if(mysqli_num_rows($result)>0){
-
+						$array = array();
 						while ($row=mysqli_fetch_assoc($result)) {
+							array_push($array,$row["trackid"]);
 							// find artistid from trackid
-							$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1");
+							/*$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1");
 							$artistid=mysqli_fetch_assoc($artistid);
 			
 							echo "<div class='listitem'>
 							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br></a>
 								  <a href='artist.php?artistid=".$artistid["artistid"]."'>
-								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";		
+								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";	*/	
 						}
-
+					//$trackIdArray=$album->getTrackid();
+					$track = new Track($conn,1);
+					$track->printTracks($array,false);
+					echo "<hr class='bg-danger'>";
 					}
 					
 		        ?>
@@ -72,18 +76,22 @@
            	   <?php
 
 					$result=mysqli_query($conn,$query_recentplay);
-
+					
 					if(mysqli_num_rows($result)>0){
-						
+						$array = array();
 						while ($row=mysqli_fetch_assoc($result)) {
-							$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1");
+							array_push($array,$row["trackid"]);
+							/*$artistid = mysqli_query($conn,"SELECT artistid FROM  track where trackid = '{$row["trackid"]}' limit 1");
 							$artistid=mysqli_fetch_assoc($artistid);
 							
 							echo "<div class='listitem'>
 							      <a href='track_details.php?pid=".$row["trackid"]."'><b>".$row["trackname"]."</b><br></a>
 								  <a href='artist.php?artistid=".$artistid["artistid"]."'>
-								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";		
+								  ".$row["artistitle"]."<hr class='bg-danger'></a></div>";*/		
 						}
+						$track = new Track($conn,1);
+					$track->printTracks($array,false);
+					echo "<hr class='bg-danger'>";
 
 					}
 					
