@@ -30,7 +30,30 @@ $(document).on("click", ".dropdown-item", function(click) {
 
 });
 
-
+$(document).on("click", ".add", function(click) {
+	var currenTime=ShowUTCDate();
+	var target=$(click.target);
+	var newPlaylist=target.prevAll("input").val();
+	var userId=$(".userid").val();
+	if (newPlaylist.length != 0 && newPlaylist.length<22) {
+			$.post("includes/handlers/ajax/createPlaylist.php",{newPlaylist:newPlaylist,userId:userId,currenTime:currenTime})
+			.done(function(error){
+				if (error!="") {
+					alert(error);
+					return;
+				}
+				else{
+					alert('Playlist created.');
+					$("#newPlaylist").val("");
+                    window.location.reload(false); 
+				}
+			});
+	}
+	else{
+		alert('1<=title length=<21');
+		$("#newPlaylist").val("");
+	}
+});
 
 
 
@@ -58,3 +81,10 @@ function hideOptionsMenu(){
 	}
 }
 
+function ShowUTCDate()
+{
+	var dNow = new Date();
+	var utc = new Date(dNow.getTime() + dNow.getTimezoneOffset() * 60000)
+	var utcdate= utc.getFullYear()+ '/' + (utc.getMonth()+1) + '/' + utc.getDate()  + ' ' + utc.getHours() + ':' + utc.getMinutes();
+    return utcdate;
+}

@@ -12,6 +12,7 @@
 	
 	//for testing 
 	$userid = "gtong900";
+	echo "<input type='hidden' class='userid' value='$userid'>";
 	//$userid = $_SESSION["loginUsername"];
 	$user = new User($conn,$userid);
 
@@ -40,7 +41,7 @@
            <div>
 
            	  <div class='listitem'>
-           	  	<input type="text" name="fname" placeholder="Create New Playlist" required/>
+           	  	<input type="text" id="newPlaylist" placeholder="Create New Playlist" required/>
 			    <img src='assets/images/icons/add.png' class='add'>
 			    <hr class='bg-danger'>
 			  </div>"
