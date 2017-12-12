@@ -1,4 +1,19 @@
 <?php
-
-echo isset($_COOKIE['loginkeycookie']);
+   require_once('sqlconnection.php');
+	//setcookie("loginkeycookie", "testkjhkjhkjh", time() + (86400 * 1), "/"); // 86400 = 1 day
+	?>
+<html>
+<body>
+<?php
+session_start();
+echo $_SESSION["loginUsername"]."<br>";
+$username = "Jacky";
+	$query = "SELECT * FROM user WHERE username = '$username'";
+	$result = mysqli_query($conn,$query);
+	$row=mysqli_fetch_assoc($result);
+	echo $row['username']."<br>";
+	
+echo $_COOKIE['loginkeycookie'];
+echo "<br>";
+//echo $_SESSION["loginUsername"];
 ?>

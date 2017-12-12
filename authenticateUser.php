@@ -8,10 +8,7 @@ require_once 'authentication.inc';
 
 		  // Register the IP address that started this session
 		  $_SESSION["loginIP"] = $_SERVER["REMOTE_ADDR"];
-			
-			
-		//$recordUserLogin = "INSERT INTO usrelogin VALUES ('$username','$_SESSION["loginIP"]',now())";
-			
+						
 		  // Relocate back to the first page of the application
 		  header("Location: user.php");
 				
