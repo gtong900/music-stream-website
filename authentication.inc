@@ -32,7 +32,8 @@ function authenticateUser($connection, $username, $password)
     return false;}
   else{
 	$loginkey = randHash(20);
-	
+	$updatekeyquery = "UPDATE user SET loginkey = '$loginkey' WHERE username = '$username'";
+	$connection->query($updatekeyquery)
 	
     return true;
 	}
