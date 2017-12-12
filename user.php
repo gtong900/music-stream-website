@@ -59,7 +59,8 @@
            	<?php
            		if ($isOwner){
            	  echo "<div class='listitem'>
-           	  	<input type='text' id='newPlaylist' placeholder='Create New Playlist' required/>
+           	  	<input type='text' class='newPlaylist' placeholder='Create New Playlist' required/>
+           	  	<input type='checkbox' class='makeitprivate' value=''> <span>make it private</span>
 			    <img src='assets/images/icons/add.png' class='add'>
 			    <hr class='bg-danger'>
 			  </div>";
@@ -67,8 +68,13 @@
 			  ?>
 
            	   <?php
-
-					$userplaylist=$user->getUserAllPlaylist();
+           	   		if ($isOwner) {
+           	   			$userplaylist=$user->getUserAllPlaylist();
+           	   		}
+           	   		else{
+           	   			$userplaylist=$user->getUserPublicPlaylist();
+           	   		}
+					
 			// check if there are results
 			  if ($userplaylist->num_rows >0){
 				  

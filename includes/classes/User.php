@@ -48,7 +48,7 @@
 		}
 		
 		public function getUserPublicPlaylist(){
-			$userPlaylistsQuery = "SELECT * FROM playlist WHERE powner = '{$this->username}' AND public = TRUE";
+			$userPlaylistsQuery = "SELECT * FROM playlist WHERE powner = '{$this->username}' AND public != 0";
 			$result = mysqli_query($this->conn,$userPlaylistsQuery);
 			return $result;
 		}
