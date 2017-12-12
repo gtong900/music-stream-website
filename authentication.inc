@@ -81,7 +81,7 @@ function sessionAuthenticated()
 	$query = "SELECT * FROM user WHERE username = '$username'";
 	$result = mysqli_query($conn,$query);
 	$row=mysqli_fetch_assoc($result);
-	  if(!isset($_COOKIE['loginkeycookie']) && $_COOKIE['loginkeycookie'] != $row['loginkey']){
+	  if(!(isset($_COOKIE['loginkeycookie']) && $_COOKIE['loginkeycookie'] == $row['loginkey'])){
 	  return false;
 	  }
 	
