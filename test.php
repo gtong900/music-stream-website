@@ -7,7 +7,7 @@
 <?php
 session_start();
 echo $_SESSION["loginUsername"]."<br>";
-$username = "Jacky";
+$username = $_SESSION["loginUsername"];
 	$query = "SELECT * FROM user WHERE username = '$username'";
 	$result = mysqli_query($conn,$query);
 	$row=mysqli_fetch_assoc($result);
