@@ -39,41 +39,12 @@
 		<?php
 		 	$trackIdArray=$playlist->getTrackid();
 		 	$i=1;
-
+			$array=array();
 		 	foreach ($trackIdArray as $trackid) {
+			array_push($array,$trackid);
 
-
-		 		$playlistTrack=new Track($conn,$trackid);
-		 		$artistid=$playlistTrack->getArtistid();
-
-		 		echo "<li class='row tracklistRow'>
-						<div class='col-md-1'>
-							<span class='counter'>$i</span>
-						</div>
-
-						<div class='col-md-5'>
-						    <input type='hidden' class='td' value='$trackid'>
-							<span class='trackName t'>" . $playlistTrack->getTrackname() . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<a href='artist.php?artistid=$artistid'><span class='artistName'>" . $playlistTrack->getArtistitle() . "</span></a>
-						</div>
-
-						<div class='col-md-2'>
-							<input type='hidden' class='trackId' value='$trackid'>
-							<input type='hidden' class='ai' value='$artistid'>
-							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
-						</div>
-
-						<div class='col-md-2'>
-							<input type='hidden' class='trackId' value='$trackid'>
-							<img src='assets/images/icons/delete.png' class='dropsong'>
-						</div>						
-					  </li>";
-
-			     $i = $i + 1;
 		 	}
+			Track::printTracks($conn,$array,true,true)
 		?>
 
 

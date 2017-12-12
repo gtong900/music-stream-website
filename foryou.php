@@ -1,25 +1,27 @@
 <?php
     require_once('frame_header.php');
+	
+	verifyUserSession();
+	
+	$userid = $_SESSION["loginUsername"];
 
-
-	$userid = "gtong900";
 	echo "<input type='hidden' class='userid' value='$userid'>";
 
 
      //below are SQL queries
     $query_recentrack="SELECT t.trackname, ar.artistitle, t.trackid 
 						FROM ((user u natural join likes l ) natural join track t) natural join albumcontent ac  natural join album a  natural join artist ar
-						WHERE u.username='gtong900'
+						WHERE u.username='{$userid}'
 						ORDER BY a.albumreleasedate DESC
 						LIMIT 10";
 	$query_recentlist="SELECT p.pid, p.ptitle, p.pdate, p.powner
 						FROM follows f join playlist p on f.username=p.powner 
-						WHERE f.follower='gtong900' AND p.public != 0
+						WHERE f.follower='{$userid}' AND p.public != 0
 						GROUP BY p.powner, p.pdate DESC
 						LIMIT 10;";
 	$query_recentplay="SELECT t.trackname, a.artistitle, t.trackid
 						FROM play p natural join track t natural join artist a
-						WHERE p.username='gtong900'
+						WHERE p.username='{$userid}'
 						ORDER BY p.playtime DESC
 						LIMIT 60;";
 						?>
