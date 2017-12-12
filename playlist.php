@@ -38,7 +38,6 @@
 	<ul class="tracklist">
 		<?php
 		 	$trackIdArray=$playlist->getTrackid();
-		 	$i=1;
 			$array=array();
 		 	foreach ($trackIdArray as $trackid) {
 			array_push($array,$trackid);

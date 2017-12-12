@@ -1,5 +1,10 @@
 <?php
 
+function make_safe($inputText){
+  	$inputText=strip_tags($inputText);
+  	return $inputText;
+	}
+
 function randHash($len=32)
 {
 	return substr(md5(openssl_random_pseudo_bytes(20)),-$len);
@@ -10,10 +15,6 @@ function authenticateUser($connection, $username, $password)
   // Test the username and password parameters
   if (!isset($username) || !isset($password))
     return false;
-
-  // Create a digest of the password collected from
-  // the challenge
-  //$password_digest = md5(trim($password));
 
   // Formulate the SQL find the user
   

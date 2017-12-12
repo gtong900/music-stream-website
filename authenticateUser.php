@@ -2,7 +2,9 @@
 require_once 'sqlconnection.php';
 require_once 'authentication.inc';
 
-	if(authenticateUser($conn,$_POST["username"],$_POST["password"])){
+	
+
+	if(authenticateUser($conn,make_safe($_POST["username"]),make_safe($_POST["password"]))){
 		session_start();
 		  $_SESSION["loginUsername"] = $_POST["username"];
 
