@@ -1,5 +1,9 @@
 <?php 
     require_once('frame_header.php'); 
+	
+	verifyUserSession();
+	
+	$userid = $_SESSION["loginUsername"];
 
 	if(isset($_GET['pid'])){
 		$pid=$_GET['pid'];
@@ -10,7 +14,6 @@
 
 	$playlist=new Playlist($conn,$pid);
 
-	$userid = "gtong900";
 	echo "<input type='hidden' class='userid' value='$userid'>";
 	echo "<input type='hidden' class='pid' value='$pid'>";
 ?>

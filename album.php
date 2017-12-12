@@ -1,6 +1,9 @@
 <?php 
     require_once('frame_header.php'); 
 
+	verifyUserSession();
+	
+	$userid = $_SESSION["loginUsername"];
 	if(isset($_GET['albumid'])){
 		$albumid=$_GET['albumid'];
 	}

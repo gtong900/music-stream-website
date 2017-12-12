@@ -1,5 +1,9 @@
 <?php
     require_once('frame_header.php');
+	
+	verifyUserSession();
+	
+	$userid = $_SESSION["loginUsername"];
 
 	if(isset($_GET['keyword'])){
 		$keyword=$_GET['keyword'];
@@ -9,7 +13,6 @@
 		header("Location: home.php");
 	}
 
-	$userid = "gtong900";
 	echo "<input type='hidden' class='userid' value='$userid'>";
 
 

@@ -32,33 +32,35 @@
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
+      
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="">Explore</a>
+      </li>
       <li class="nav-item">
+        <a class="nav-link" href="">Account</a>
+      </li>--> 
+	  <?php
+	  if(sessionAuthenticated()){?>
+	  <li class="nav-item">
         <a class="nav-link" href="user.php">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="foryou.php">For You</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">Explore</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">Account</a>
-      </li>
-	  <?php
-	  if(sessionAuthenticated()){?>
 	  <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
       </li>
-	  <?php
-	  } ?>
-      <li class="nav-item">
+	  <li class="nav-item">
         <a class="nav-link" href="#"></a>
       </li>
         <form class="form-inline right" method = "Get" action="search.php">
         <input class="form-control" type="text" name="keyword" placeholder="Search">
         &nbsp;
         <button class="btn btn-success" type="submit">Search</button>
-        </form>    
+        </form>
+	  <?php
+	  } ?>
+      
     </ul>
   </div>  
 </nav>
