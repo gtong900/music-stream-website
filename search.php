@@ -6,7 +6,7 @@
 	$userid = $_SESSION["loginUsername"];
 
 	if(isset($_GET['keyword'])){
-		$keyword=$_GET['keyword'];
+		$keyword=make_safe($_GET['keyword']);
 		echo "<input type='hidden' class='keyword' value='$keyword'>";
 	}
 	else{
