@@ -1,5 +1,5 @@
 <?php
-
+   require_once('sqlconnection.php');
 function randHash($len=32)
 {
 	return substr(md5(openssl_random_pseudo_bytes(20)),-$len);
@@ -33,8 +33,13 @@ function authenticateUser($connection, $username, $password)
   else{
 	$loginkey = randHash(20);
 	$updatekeyquery = "UPDATE user SET loginkey = '$loginkey' WHERE username = '$username'";
-	$connection->query($updatekeyquery)
-	
+	$connection->query($updatekeyquery);
+	setcookie($loginkeycookie, $loginkey, time() + (86400 * 1), "/"); // 86400 = 1 day
+	?>
+<html>
+<body>
+
+<?php
     return true;
 	}
 }
@@ -51,7 +56,7 @@ function sessionAuthenticate()
     // The request does not identify a session
     $_SESSION["message"] = "You are not authorized to access the URL 
                             {$_SERVER["REQUEST_URI"]}";
-
+	
     header("Location: index.php");
     exit;
   }
@@ -70,9 +75,19 @@ function sessionAuthenticate()
 
     header("Location: index.php");
     exit;
-  }
-  return true;
+	}
   
+  // for concurrency check if cookie is same as latest on data
+	$username = $_SESSION["loginUsername"];
+	$query = "SELECT * FROM user WHERE username = '$username'";
+	$result = mysqli_query($conn,$query);
+	$row=mysqli_fetch_assoc($result);
+	  if(isset($_COOKIE['loginkeycookie']) && $_COOKIE['loginkeycookie'] == $row['loginkey']){
+	  }else{
+	  header("Location: index.php");
+	  exit;
+	}
+	
+  return true;
 }
-
 ?>
