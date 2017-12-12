@@ -55,10 +55,10 @@ $(document).on("click", ".add", function(click) {
 	var userId=$(".userid").val();
 
 	if ($(".makeitprivate").is(':checked')) {
-		var public=0;	
+		var public=1;	
 	}
 	else{
-		var public=1;
+		var public=0;
 	}
 
 	if (newPlaylist.length != 0 && newPlaylist.length<22) {

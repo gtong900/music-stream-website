@@ -60,7 +60,10 @@
            		if ($isOwner){
            	  echo "<div class='listitem'>
            	  	<input type='text' class='newPlaylist' placeholder='Create New Playlist' required/>
-           	  	<input type='checkbox' class='makeitprivate' value=''> <span>make it private</span>
+           	  	<label class='switch'>
+				  <input type='checkbox' class='makeitprivate' checked>
+				  <span class='slider round'></span>
+				</label>
 			    <img src='assets/images/icons/add.png' class='add'>
 			    <hr class='bg-danger'>
 			  </div>";
