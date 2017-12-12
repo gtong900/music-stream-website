@@ -1,5 +1,9 @@
 <?php 
     require_once('frame_header.php'); 
+	
+	verifyUserSession();
+	
+	$userid = $_SESSION["loginUsername"];
 
 	if(isset($_GET['artistid'])){
 		$artistid=$_GET['artistid'];
@@ -11,7 +15,6 @@
 
 	$artist=new Artist($conn,$artistid);
 
-	$userid = "gtong900";
 	echo "<input type='hidden' class='userid' value='$userid'>";
 ?>
 
