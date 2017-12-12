@@ -13,9 +13,20 @@ $(window).scroll(function(){
 
 $(document).on("click", ".t", function(click) {
 	var target=$(click.target);
-	var trackid=target.prevAll(".td").val();
-	$("iframe").attr('src', "https://open.spotify.com/embed?uri=spotify%3Atrack%3A"+trackid);	
+	var trackId=target.prevAll(".td").val();
+	var userId=$(".userid").val();
+	var currenTime=ShowUTCDate();
+	$("iframe").attr('src', "https://open.spotify.com/embed?uri=spotify%3Atrack%3A"+trackId);
+	$.post("includes/handlers/ajax/createPlayrecord.php",{trackId:trackId,userId:userId,currenTime:currenTime})
+	.done(function(error){
+		if (error!="") {
+			alert(error);
+			return;
+		}
+	});
 });
+
+
 
 $(document).on("click", ".dropdown-item", function(click) {
 	var target=$(click.target);
@@ -137,7 +148,7 @@ $(document).on("click", ".follow", function(click) {
 
 $(document).on("click", ".unlike", function(click) {
 	var target=$(click.target);
-	var artistid=target.prevAll("input").val();
+	var artistid=target.prev("input").val();
 	var userId=$(".userid").val();
 	$.post("includes/handlers/ajax/unlikeArtist.php",{username:userId, artistid:artistid})
 	.done(function(error){

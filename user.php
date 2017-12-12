@@ -6,32 +6,40 @@
 	
 	$userid = $_SESSION["loginUsername"];
 	$isOwner = true;
+	
 	if(isset($_GET['username']) && $_GET['username'] != $userid){
-		$userid=$_GET['username'];
 		$isOwner = false;
+		$guestid=$_GET['username'];
+		$user = new User($conn,$guestid);
+	}
+	else{
+		$user = new User($conn,$userid);
 	}
 	
 	//for testing 
 	//$userid = "gtong900";
 	echo "<input type='hidden' class='userid' value='$userid'>";
 	//$userid = $_SESSION["loginUsername"];
-	$user = new User($conn,$userid);
+	
 
 ?>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md text-primary">
-		<span class="details">Username:</span> &nbsp;<?php echo $user->getusername() ?><br>
+		<span class="details">Username:</span> &nbsp;<?php echo $user->getusername() ?>
+			&nbsp;
+			<?php echo "<input type='hidden' value='".$user->getusername()."'>"; ?>
+			<img src='assets/images/icons/like_follow.png' class='follow'>
 			</div>
 			<?php if($isOwner){ ?>
 		<div class="col-md text-primary">
-			<span class="details">Name:</span> &nbsp;<?php echo $user->getusertitle() ?><br>
+			<span class="details">Name:</span> &nbsp;<?php echo $user->getusertitle() ?>
 			</div>
 		<div class="col-md text-primary">
-			<span class="details">Email:</span> &nbsp;<?php echo $user->getuseremail() ?><br>			
+			<span class="details">Email:</span> &nbsp;<?php echo $user->getuseremail() ?>			
 			</div>
 		<div class="col-md text-primary">
-			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity() ?><br>		
+			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity() ?>		
 			</div>
 			<?php
 			}?>

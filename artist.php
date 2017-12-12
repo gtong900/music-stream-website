@@ -6,7 +6,7 @@
 		echo "<input type='hidden' class='artistid' value='$artistid'>";
 	}
 	else{
-		header("Location: home.php");
+		header("Location: user.php");
 	}
 
 	$artist=new Artist($conn,$artistid);

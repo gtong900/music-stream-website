@@ -3,6 +3,7 @@
 
 	if(isset($_GET['keyword'])){
 		$keyword=$_GET['keyword'];
+		echo "<input type='hidden' class='keyword' value='$keyword'>";
 	}
 	else{
 		header("Location: home.php");

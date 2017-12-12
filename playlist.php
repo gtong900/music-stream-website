@@ -5,7 +5,7 @@
 		$pid=$_GET['pid'];
 	}
 	else{
-		header("Location: home.php");
+		header("Location: user.php");
 	}
 
 	$playlist=new Playlist($conn,$pid);
