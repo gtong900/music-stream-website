@@ -7,8 +7,11 @@
 		// if user input incorrect login
 		if(!empty($_GET)){
 			?>
-			<p> incorrect username or password. Try again
+			<error> incorrect username or password. Try again</error>
+			           
 			<?php
+			if(isset($_SESSION["message"]))
+				echo $_SESSION["message"];
 		}
 		
 		?>

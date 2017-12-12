@@ -8,6 +8,10 @@ td, h1, h2, h3, h4, span, .listitem b{
 	color: #fff;
 }
 
+errormsg, .listitem c{
+	color: #ff0000;
+}
+
 
 #nowPlayingBarContainer{
 	width: 100%;

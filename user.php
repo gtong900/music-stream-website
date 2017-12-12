@@ -2,13 +2,14 @@
     require_once('frame_header.php'); 
 
 	// should check session first. if not go back to index.php
+	sessionAuthenticate();
+	
 	
 	$isOwner = true;
 	if(isset($_GET['username'])){
 		$username=$_GET['username'];
 		$isOwner = false;
 	}
-	
 	
 	//for testing 
 	$userid = "gtong900";

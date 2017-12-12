@@ -4,13 +4,16 @@ require_once 'authentication.inc';
 
 	if(authenticateUser($conn,$_POST["username"],$_POST["password"])){
 		session_start();
-		  $_SESSION["loginUsername"] = $username;
+		  $_SESSION["loginUsername"] = $_POST["username"];
 
 		  // Register the IP address that started this session
 		  $_SESSION["loginIP"] = $_SERVER["REMOTE_ADDR"];
-
+			
+			
+		//$recordUserLogin = "INSERT INTO usrelogin VALUES ('$username','$_SESSION["loginIP"]',now())";
+			
 		  // Relocate back to the first page of the application
-		  header("Location: home.php");
+		  header("Location: user.php");
 				
 		//found
 	}else{

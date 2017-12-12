@@ -15,6 +15,7 @@
 <body background="assets\images\backgrounds\home_bg.png">
 <?php
    require_once('sqlconnection.php');
+   require_once 'authentication.inc'; 
    include("includes/classes/Playlist.php");
    include("includes/classes/Track.php");
    include("includes/classes/Artist.php");
@@ -46,8 +47,8 @@
       <li class="nav-item">
         <a class="nav-link" href="#"></a>
       </li>
-        <form class="form-inline right" action="">
-        <input class="form-control" type="text" placeholder="Search">
+        <form class="form-inline right" method = "Get" action="search.php">
+        <input class="form-control" type="text" name="keyword" placeholder="Search">
         &nbsp;
         <button class="btn btn-success" type="submit">Search</button>
         </form>    

@@ -34,6 +34,7 @@ function authenticateUser($connection, $username, $password)
 // the address used to create the session.
 function sessionAuthenticate()
 {
+	session_start();
   // Check if the user hasn't logged in
   if (!isset($_SESSION["loginUsername"]))
   {
@@ -41,7 +42,7 @@ function sessionAuthenticate()
     $_SESSION["message"] = "You are not authorized to access the URL 
                             {$_SERVER["REQUEST_URI"]}";
 
-    header("Location: logout.php");
+    header("Location: index.php");
     exit;
   }
 
@@ -57,9 +58,10 @@ function sessionAuthenticate()
                             {$_SERVER["REQUEST_URI"]} from the address 
                             {$_SERVER["REMOTE_ADDR"]}";
 
-    header("Location: logout.php");
+    header("Location: index.php");
     exit;
   }
+  
 }
 
 ?>
