@@ -82,6 +82,7 @@ function sessionAuthenticated()
 	$result = mysqli_query($conn,$query);
 	$row=mysqli_fetch_assoc($result);
 	  if(!(isset($_COOKIE['loginkeycookie']) && $_COOKIE['loginkeycookie'] == $row['loginkey'])){
+	  $_SESSION["logingmsg"]= "You are logged in elsewhere, login again to use on this machine";
 	  return false;
 	  }
 	

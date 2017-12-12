@@ -8,8 +8,8 @@
 			header("location: user.php");
     
 		// error message
-			if(isset($_SESSION["message"]))
-				echo $_SESSION["message"];
+			if(isset($_SESSION["logingmsg"]))
+				echo "<errormsg>".$_SESSION["logingmsg"]."</errormsg>";
 		
 		?>
 		<form method="post" action="authenticateUser.php">

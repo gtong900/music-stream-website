@@ -68,7 +68,7 @@ $_SESSION["EmailMatch"]= true;
 			$_SESSION["EmailMatch"]= true;
 			
 		
-	$_SESSION["message"] = "sign up complete!";
+	$_SESSION["logingmsg"] = "sign up complete!, please login";
 	 //if($insertion = $conn->query($insertNewUser))
 	  //showerror();
 	header("Location: index.php");	
