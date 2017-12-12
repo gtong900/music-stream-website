@@ -51,6 +51,7 @@ function authenticateUser($connection, $username, $password)
 function sessionAuthenticated()
 {
    include('sqlconnection.php');
+   if(session_status()!=2)
    session_start();
   // Check if the user hasn't logged in
   if (!isset($_SESSION["loginUsername"]))

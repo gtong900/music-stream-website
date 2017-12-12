@@ -44,6 +44,13 @@
       <li class="nav-item">
         <a class="nav-link" href="">Account</a>
       </li>
+	  <?php
+	  if(sessionAuthenticated()){?>
+	  <li class="nav-item">
+        <a class="nav-link" href="logout.php">Logout</a>
+      </li>
+	  <?php
+	  } ?>
       <li class="nav-item">
         <a class="nav-link" href="#"></a>
       </li>

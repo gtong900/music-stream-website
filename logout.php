@@ -1,5 +1,6 @@
 <?php require_once('frame_header.php');
-session_start();
+if(session_status()!=2)
+   session_start();
 session_unset();
 session_destroy();  
 
