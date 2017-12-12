@@ -7,15 +7,9 @@
 		if(sessionAuthenticate())// if user already logged in then go to user page
 			header("location: user.php");
     
-		// if user input incorrect login
-		if(!empty($_GET)){
-			?>
-			<errormsg> incorrect username or password. Try again</errormsg>
-			           
-			<?php
+		// error message
 			if(isset($_SESSION["message"]))
 				echo $_SESSION["message"];
-		}
 		
 		?>
 		<form method="post" action="authenticateUser.php">

@@ -58,6 +58,7 @@ function sessionAuthenticate()
     $_SESSION["message"] = "You are not authorized to access the URL 
                             {$_SERVER["REQUEST_URI"]}";
     header("Location: index.php");
+	return false;
     exit;
   }
 
@@ -73,6 +74,7 @@ function sessionAuthenticate()
                             {$_SERVER["REQUEST_URI"]} from the address 
                             {$_SERVER["REMOTE_ADDR"]}";
     header("Location: index.php");
+	return false;
     exit;
 	}
   
@@ -83,6 +85,7 @@ function sessionAuthenticate()
 	$row=mysqli_fetch_assoc($result);
 	  if(!isset($_COOKIE['loginkeycookie']) && $_COOKIE['loginkeycookie'] != $row['loginkey']){
 	  header("Location: index.php");
+	  return false;
 	  exit;
 	  }
 	
