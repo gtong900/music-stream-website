@@ -61,6 +61,7 @@ function sessionAuthenticate()
     header("Location: index.php");
     exit;
   }
+  return true;
   
 }
 

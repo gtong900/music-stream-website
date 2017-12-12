@@ -4,15 +4,15 @@
 	// should check session first. if not go back to index.php
 	sessionAuthenticate();
 	
-	
+	$userid = $_SESSION["loginUsername"];
 	$isOwner = true;
-	if(isset($_GET['username'])){
-		$username=$_GET['username'];
+	if(isset($_GET['username']) && $_GET['username'] != $userid){
+		$userid=$_GET['username'];
 		$isOwner = false;
 	}
 	
 	//for testing 
-	$userid = "gtong900";
+	//$userid = "gtong900";
 	echo "<input type='hidden' class='userid' value='$userid'>";
 	//$userid = $_SESSION["loginUsername"];
 	$user = new User($conn,$userid);
@@ -23,6 +23,7 @@
 		<div class="col-md text-primary">
 		<span class="details">Username:</span> &nbsp;<?php echo $user->getusername() ?><br>
 			</div>
+			<?php if($isOwner){ ?>
 		<div class="col-md text-primary">
 			<span class="details">Name:</span> &nbsp;<?php echo $user->getusertitle() ?><br>
 			</div>
@@ -32,6 +33,9 @@
 		<div class="col-md text-primary">
 			<span class="details">City:</span> &nbsp;<?php echo $user->getusercity() ?><br>		
 			</div>
+			<?php
+			}?>
+			
 	</div>
 </div>
 <br>
