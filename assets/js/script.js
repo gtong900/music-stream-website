@@ -16,6 +16,7 @@ $(document).on("click", ".t", function(click) {
 	var trackId=target.prevAll(".td").val();
 	var userId=$(".userid").val();
 	var currenTime=ShowUTCDate();
+	console.log(trackId,userId,currenTime);
 	$("iframe").attr('src', "https://open.spotify.com/embed?uri=spotify%3Atrack%3A"+trackId);
 	$.post("includes/handlers/ajax/createPlayrecord.php",{trackId:trackId,userId:userId,currenTime:currenTime})
 	.done(function(error){
@@ -125,6 +126,8 @@ $(document).on("click", ".like, .likefromlist", function(click) {
 		}
 	});
 
+	hideOptionsMenu();
+
 });
 
 $(document).on("click", ".follow", function(click) {
@@ -215,6 +218,6 @@ function ShowUTCDate()
 {
 	var dNow = new Date();
 	var utc = new Date(dNow.getTime() + dNow.getTimezoneOffset() * 60000)
-	var utcdate= utc.getFullYear()+ '/' + (utc.getMonth()+1) + '/' + utc.getDate()  + ' ' + utc.getHours() + ':' + utc.getMinutes();
+	var utcdate= utc.getFullYear()+ '/' + (utc.getMonth()+1) + '/' + utc.getDate()  + ' ' + utc.getHours() + ':' + utc.getMinutes()+':'+utc.getSeconds();
     return utcdate;
 }
