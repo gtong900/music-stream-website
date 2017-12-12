@@ -13,6 +13,11 @@ $username = "Jacky";
 	$row=mysqli_fetch_assoc($result);
 	echo $row['username']."<br>";
 	
+	$query = "SELECT * FROM user WHERE username = '$username'";
+	$result = mysqli_query($conn,$query);
+	$row=mysqli_fetch_assoc($result);
+	echo $row['loginkey']."<br>";
+	
 echo $_COOKIE['loginkeycookie'];
 echo "<br>";
 //echo $_SESSION["loginUsername"];
