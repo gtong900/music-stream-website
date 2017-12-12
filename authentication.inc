@@ -47,7 +47,8 @@ function authenticateUser($connection, $username, $password)
 // Connects to a session and checks that the user has
 // authenticated and that the remote IP address matches
 // the address used to create the session.
-function sessionAuthenticate()
+// also checks for concurrency
+function sessionAuthenticated()
 {
    include('sqlconnection.php');
    session_start();
@@ -57,9 +58,7 @@ function sessionAuthenticate()
     // The request does not identify a session
     $_SESSION["message"] = "You are not authorized to access the URL 
                             {$_SERVER["REQUEST_URI"]}";
-    header("Location: index.php");
 	return false;
-    exit;
   }
 
   // Check if the request is from a different IP address to previously
@@ -73,9 +72,7 @@ function sessionAuthenticate()
     $_SESSION["message"] = "You are not authorized to access the URL 
                             {$_SERVER["REQUEST_URI"]} from the address 
                             {$_SERVER["REMOTE_ADDR"]}";
-    header("Location: index.php");
 	return false;
-    exit;
 	}
   
   // for concurrency check if cookie is same as latest on data
@@ -84,11 +81,17 @@ function sessionAuthenticate()
 	$result = mysqli_query($conn,$query);
 	$row=mysqli_fetch_assoc($result);
 	  if(!isset($_COOKIE['loginkeycookie']) && $_COOKIE['loginkeycookie'] != $row['loginkey']){
-	  header("Location: index.php");
 	  return false;
-	  exit;
 	  }
 	
   return true;
 }
+
+//if session is not verified then direct to index. 
+function verifyUserSession(){
+	if (!sessionAuthenticated())
+		header("location: index.php");
+
+}
+
 ?>
