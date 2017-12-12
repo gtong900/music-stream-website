@@ -28,8 +28,12 @@
 		<div class="col-md text-primary">
 		<span class="details">Username:</span> &nbsp;<?php echo $user->getusername() ?>
 			&nbsp;
-			<?php echo "<input type='hidden' value='".$user->getusername()."'>"; ?>
-			<img src='assets/images/icons/like_follow.png' class='follow'>
+			<?php 
+			echo "<input type='hidden' value='".$user->getusername()."'>";
+			if (!$isOwner) {
+				echo "<img src='assets/images/icons/like_follow.png' class='follow'>";
+			}
+			?>
 			</div>
 			<?php if($isOwner){ ?>
 		<div class="col-md text-primary">
@@ -52,12 +56,15 @@
 	    <div class="col-md">
 	      <h3 class="text-danger">Playlists</h3>
            <div>
-
-           	  <div class='listitem'>
-           	  	<input type="text" id="newPlaylist" placeholder="Create New Playlist" required/>
+           	<?php
+           		if ($isOwner){
+           	  echo "<div class='listitem'>
+           	  	<input type='text' id='newPlaylist' placeholder='Create New Playlist' required/>
 			    <img src='assets/images/icons/add.png' class='add'>
 			    <hr class='bg-danger'>
-			  </div>"
+			  </div>";
+			}
+			  ?>
 
            	   <?php
 
@@ -74,10 +81,12 @@
 							<input type='hidden' class='pid' value='$pid'>
 						    <a href='playlist.php?pid=$pid'><b>".$row["ptitle"]."</b> &nbsp;
 						    <span class='unimportant'>$number Songs</span>
-						    </a>
-						    <img src='assets/images/icons/delete.png' class='delete'>
-						    <hr class='bg-danger'>
-						  </div>";		
+						    </a>";
+					if ($isOwner) {
+						echo "<img src='assets/images/icons/delete.png' class='delete'>";
+					}
+						echo "<hr class='bg-danger'>
+						      </div>";		
 				}  
 			  }else{
 				  echo "<b>None</b>";
@@ -103,9 +112,11 @@
 					$artist = new Artist($conn,$artistid);
 					echo "<div class='listitem'>
 							<input type='hidden' class='artistid' value='$artistid'>
-						  <a href='artist.php?artistid=$artistid'><b>".$artist->getTitle()."</b></a>
-						  <img src='assets/images/icons/delete.png' class='unlike'>
-						  <hr class='bg-primary'>
+						  <a href='artist.php?artistid=$artistid'><b>".$artist->getTitle()."</b></a>";
+						  if($isOwner){
+						  	echo "<img src='assets/images/icons/delete.png' class='unlike'>";
+						  }
+					echo "<hr class='bg-primary'>
 						  </div>";		
 				}  
 			  }else{
@@ -129,9 +140,11 @@
 					$username=$row["username"];
 					echo "<div class='listitem'>
 							<input type='hidden' value='$username'>
-						  <a href='user.php?username=$username'><b>".$username."</b></a>
-                          <img src='assets/images/icons/delete.png' class='unfollow'>
-						  <hr class='bg-secondary'>
+						  <a href='user.php?username=$username'><b>".$username."</b></a>";
+				 	if($isOwner){
+				 		echo "<img src='assets/images/icons/delete.png' class='unfollow'>";
+				 	}		
+					echo "<hr class='bg-secondary'>
 						  </div>";		
 				}  
 			  }else{
