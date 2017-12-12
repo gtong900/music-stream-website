@@ -1,3 +1,6 @@
+<?php
+if(sessionAuthenticated()){?>
+
     <div id="nowPlayingBarContainer">
         <div id="nowPlayingBar">
             <div id="nowPlayingLeft">
@@ -54,3 +57,7 @@
 
 </body>
 </html>
+
+<?php
+}
+?>
