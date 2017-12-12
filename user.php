@@ -54,7 +54,7 @@
 <div class="container-fluid">
 	  <div class="row">
 	    <div class="col-md">
-	      <h3 class="text-danger">Playlists</h3>
+	      <h3 class="text-danger">Playlist</h3>
            <div>
            	<?php
            		if ($isOwner){
