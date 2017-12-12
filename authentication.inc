@@ -2,7 +2,8 @@
 
 function make_safe($inputText){
   	$inputText=strip_tags($inputText);
-  	return $inputText;
+  	$inputText=str_replace(" ", "", $inputText);
+	return $inputText;
 	}
 
 function randHash($len=32)

@@ -1,8 +1,9 @@
 <?php
 
 require_once 'sqlconnection.php';
+   require_once 'authentication.inc'; 
 
-$username =  $_POST["username"];
+$username =  make_safe($_POST["username"]);
 $fullname =  $_POST["fullname"];
 $pass1 = $_POST["password"]; 
 $pass2 = $_POST["password_confirm"]; 
