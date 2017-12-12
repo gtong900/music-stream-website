@@ -41,9 +41,13 @@
 			$array=array();
 		 	foreach ($trackIdArray as $trackid) {
 			array_push($array,$trackid);
-
 		 	}
-			Track::printTracks($conn,$array,true,true)
+			$displayDrop = true;
+			if($userid != $playlist->getOwner()){
+			$displayDrop = false;}
+			
+			
+			Track::printTracks($conn,$array,true,$displayDrop)
 		?>
 
 
