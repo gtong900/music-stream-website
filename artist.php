@@ -38,40 +38,14 @@
 	<ul class="tracklist">
 		<?php
 		 	$trackIdArray=$artist->getTrackid();
-		 	$i=1;
-
+				
+			$array=array();
 		 	foreach ($trackIdArray as $trackid) {
+			array_push($array,$trackid);
 
-
-		 		$artistTrack=new Track($conn,$trackid);
-
-		 		echo "<li class='row tracklistRow'>
-						<div class='col-md-1'>
-							<span class='counter'>$i</span>
-						</div>
-
-						<div class='col-md-5'>
-							<input type='hidden' class='td' value='$trackid'>
-							<span class='trackName t'>" . $artistTrack->getTrackname() . "</span>
-						</div>
-
-						<div class='col-md-2'>
-						     <input type='hidden' class='trackId' value='$trackid'>
-							 <input type='hidden' class='ai' value='$artistid'>
-						     <img class='optionsButton' src='assets/images/icons/more.png' style='float:left' onclick='showOptionMenu(this)'>							
-						</div>
-
-						<div class='col-md-2'>
-							<span class=''>" . "</span>
-						</div>
-
-						<div class='col-md-2'>
-							<span class=''>" . "</span>
-						</div>						
-					  </li>";
-
-			     $i = $i + 1;
 		 	}
+			Track::printTracks($conn,$array,true,false)
+
 		?>
 
 

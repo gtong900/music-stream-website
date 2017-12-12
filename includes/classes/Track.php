@@ -77,7 +77,7 @@
 						}
 						if($wantDrop){
 						echo "<div class='col-md-1'>
-							<span class='trackName'>Drop</span>
+							<span class='trackName'></span>
 						</div>";		
 						}						
 					  echo"</li>";
