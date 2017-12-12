@@ -1,5 +1,10 @@
 <?php
 
+function randHash($len=32)
+{
+	return substr(md5(openssl_random_pseudo_bytes(20)),-$len);
+}
+
 function authenticateUser($connection, $username, $password)
 {
   // Test the username and password parameters
@@ -23,10 +28,14 @@ function authenticateUser($connection, $username, $password)
     
 
   // exactly one row? then we have found the user
-  if ($result->num_rows != 1)
-    return false;
-  else
+  if ($result->num_rows != 1){
+    return false;}
+  else{
+	$loginkey = randHash(20);
+	
+	
     return true;
+	}
 }
 
 // Connects to a session and checks that the user has
@@ -61,6 +70,7 @@ function sessionAuthenticate()
     header("Location: index.php");
     exit;
   }
+  return true;
   
 }
 

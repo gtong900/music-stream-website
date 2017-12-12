@@ -3,11 +3,14 @@
 <h3>Login</h3>
 		<!-- This signing in-->
 		<?php 
+		
+		if(sessionAuthenticate())// if user already logged in then go to user page
+			header("location: user.php");
     
 		// if user input incorrect login
 		if(!empty($_GET)){
 			?>
-			<error> incorrect username or password. Try again</error>
+			<errormsg> incorrect username or password. Try again</errormsg>
 			           
 			<?php
 			if(isset($_SESSION["message"]))
