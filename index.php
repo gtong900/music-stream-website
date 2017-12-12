@@ -1,21 +1,15 @@
 <?php require_once('frame_header.php');?>
-<h1>Music Online</h1>
+<h1>Welcome<h1>
 <h3>Login</h3>
 		<!-- This signing in-->
 		<?php 
 		
-		if(sessionAuthenticate())// if user already logged in then go to user page
+		if(sessionAuthenticated())// if user already logged in then go to user page
 			header("location: user.php");
     
-		// if user input incorrect login
-		if(!empty($_GET)){
-			?>
-			<errormsg> incorrect username or password. Try again</errormsg>
-			           
-			<?php
-			if(isset($_SESSION["message"]))
-				echo $_SESSION["message"];
-		}
+		// error message
+			if(isset($_SESSION["logingmsg"]))
+				echo "<errormsg>".$_SESSION["logingmsg"]."</errormsg>";
 		
 		?>
 		<form method="post" action="authenticateUser.php">

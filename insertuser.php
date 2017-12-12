@@ -47,7 +47,7 @@ $_SESSION["EmailMatch"]= true;
 //check for passwork match
 		if($pass1!=$pass2)
 			$_SESSION["PasswordMatch"] = false;
-//check for passwork match
+//check for email match
 		if($email1!=$email2)
 			$_SESSION["EmailMatch"] = false;
 
@@ -68,7 +68,7 @@ $_SESSION["EmailMatch"]= true;
 			$_SESSION["EmailMatch"]= true;
 			
 		
-	echo "sign up complete!";
+	$_SESSION["logingmsg"] = "sign up complete!, please login";
 	 //if($insertion = $conn->query($insertNewUser))
 	  //showerror();
 	header("Location: index.php");	

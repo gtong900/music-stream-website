@@ -32,8 +32,14 @@ function authenticateUser($connection, $username, $password)
     return false;}
   else{
 	$loginkey = randHash(20);
-	
-	
+	$updatekeyquery = "UPDATE user SET loginkey = '$loginkey' WHERE username = '$username'";
+	$connection->query($updatekeyquery);
+	setcookie('loginkeycookie', $loginkey, time() + (86400 * 1), "/"); // 86400 = 1 day
+	?>
+<html>
+<body>
+
+<?php
     return true;
 	}
 }
@@ -41,18 +47,19 @@ function authenticateUser($connection, $username, $password)
 // Connects to a session and checks that the user has
 // authenticated and that the remote IP address matches
 // the address used to create the session.
-function sessionAuthenticate()
+// also checks for concurrency
+function sessionAuthenticated()
 {
-	session_start();
+   include('sqlconnection.php');
+   if(session_status()!=2)
+   session_start();
   // Check if the user hasn't logged in
   if (!isset($_SESSION["loginUsername"]))
   {
     // The request does not identify a session
     $_SESSION["message"] = "You are not authorized to access the URL 
                             {$_SERVER["REQUEST_URI"]}";
-
-    header("Location: index.php");
-    exit;
+	return false;
   }
 
   // Check if the request is from a different IP address to previously
@@ -66,12 +73,27 @@ function sessionAuthenticate()
     $_SESSION["message"] = "You are not authorized to access the URL 
                             {$_SERVER["REQUEST_URI"]} from the address 
                             {$_SERVER["REMOTE_ADDR"]}";
-
-    header("Location: index.php");
-    exit;
-  }
-  return true;
+	return false;
+	}
   
+  // for concurrency check if cookie is same as latest on data
+	$username = $_SESSION["loginUsername"];
+	$query = "SELECT * FROM user WHERE username = '$username'";
+	$result = mysqli_query($conn,$query);
+	$row=mysqli_fetch_assoc($result);
+	  if(!(isset($_COOKIE['loginkeycookie']) && $_COOKIE['loginkeycookie'] == $row['loginkey'])){
+	  $_SESSION["logingmsg"]= "You are logged in elsewhere, login again to use on this machine";
+	  return false;
+	  }
+	
+  return true;
+}
+
+//if session is not verified then direct to index. 
+function verifyUserSession(){
+	if (!sessionAuthenticated())
+		header("location: index.php");
+
 }
 
 ?>

@@ -2,7 +2,7 @@
     require_once('frame_header.php'); 
 
 	// should check session first. if not go back to index.php
-	sessionAuthenticate();
+	verifyUserSession();
 	
 	$userid = $_SESSION["loginUsername"];
 	$isOwner = true;
