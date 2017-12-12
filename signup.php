@@ -5,6 +5,7 @@
 
 <?php
 // this is to check for form errors
+if(session_status()!=2)
 session_start();
 if(isset($_SESSION["UsernameTaken"]) && $_SESSION["UsernameTaken"]!= false)
 	 Echo "<b>UserName Taken already please try another</b></br>";
@@ -22,7 +23,7 @@ if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
 		<table>
 		  <tr>
 			<td>UserName *:</td>
-			<td><input type="text" size="10" name="username" required></td>
+			<td><input type="text" size="10" name="username" pattern="[A-Za-z0-9]{1,}" title="cannot have space and no special characters" required></td>
 		  </tr>
 		  
 		  <tr>
