@@ -13,17 +13,17 @@
 						FROM ((user u natural join likes l ) natural join track t) natural join albumcontent ac  natural join album a  natural join artist ar
 						WHERE u.username='{$userid}'
 						ORDER BY a.albumreleasedate DESC
-						LIMIT 10";
+						LIMIT 30";
 	$query_recentlist="SELECT p.pid, p.ptitle, p.pdate, p.powner
 						FROM follows f join playlist p on f.username=p.powner 
 						WHERE f.follower='{$userid}' AND p.public != 0
 						GROUP BY p.powner, p.pdate DESC
-						LIMIT 10;";
-	$query_recentplay="SELECT t.trackname, a.artistitle, t.trackid
+						LIMIT 30;";
+	$query_recentplay="SELECT DISTINCT t.trackname, a.artistitle, t.trackid
 						FROM play p natural join track t natural join artist a
 						WHERE p.username='{$userid}'
 						ORDER BY p.playtime DESC
-						LIMIT 60;";
+						LIMIT 30;";
 						?>
 
 	<div class="container-fluid">
