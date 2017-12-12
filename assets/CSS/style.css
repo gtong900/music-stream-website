@@ -4,7 +4,7 @@ html, body {
 	height: 100%;
 }
 
-td, h1, h2, h3, h4, span{
+td, h1, h2, h3, h4, span, .listitem b{
 	color: #fff;
 }
 
@@ -58,9 +58,15 @@ td, h1, h2, h3, h4, span{
   border-radius: 0;
 }
 
-.listitem a, .tracklist a{
+.listitem span, .tracklist a{
   text-decoration: none;
   color: white;
+}
+
+.listitem a, .playlistowner{
+	color: #939393;
+	font-weight: 200;
+	text-decoration: none;
 }
 
 
@@ -164,7 +170,7 @@ td, h1, h2, h3, h4, span{
 	padding: 2px;
 }
 
-.trackName {
+.trackName{
     color: #fff;
     font-weight: bolder;
     margin-bottom: 7px;
@@ -225,15 +231,23 @@ td, h1, h2, h3, h4, span{
 	color: rgb(0, 123, 228);
 }
 
-.unlike, .unfollow, .delete, .add{
+.unlike, .unfollow, .delete, .add, .dropsong{
 	width: 20px;
 	float: right;
+	cursor: pointer;
 }
+
+.like, .follow{
+	width: 23px;
+	cursor: pointer;
+}
+
 
 .unimportant{
 	color: #666464;
 }
 
-.t{
+.t,.listitem b{
 	cursor: pointer;
 }
+

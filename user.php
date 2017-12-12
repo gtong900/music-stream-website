@@ -89,6 +89,7 @@
 					$artistid = $row["artistid"];
 					$artist = new Artist($conn,$artistid);
 					echo "<div class='listitem'>
+							<input type='hidden' class='artistid' value='$artistid'>
 						  <a href='artist.php?artistid=$artistid'><b>".$artist->getTitle()."</b></a>
 						  <img src='assets/images/icons/delete.png' class='unlike'>
 						  <hr class='bg-primary'>
@@ -114,6 +115,7 @@
 					//ptitle, pdate, powner, public
 					$username=$row["username"];
 					echo "<div class='listitem'>
+							<input type='hidden' value='$username'>
 						  <a href='user.php?username=$username'><b>".$username."</b></a>
                           <img src='assets/images/icons/delete.png' class='unfollow'>
 						  <hr class='bg-secondary'>

@@ -67,47 +67,5 @@
 			return $dropdown."</div>
 							</div>";
 		}
-		
-		public function printPlaylist($conn,$playlistArray,$wantCreationDate){
-			$i=1;
-			//heading
-			echo "<li class='row tracklistRow'>
-						<div class='col-md-5'>
-							<span class='trackName'>Name</span>
-						</div>
-
-						<div class='col-md-5'>
-							<span class='trackName'>Created by</span>
-						</div>";
-						
-						if($wantCreationDate){
-						echo"<div class='col-md-5'>
-							<span class='Created on'>Created on</span>
-						</div>";
-						}						
-					  echo"</li>";
-
-		 	foreach ($playlistArray as $pid) {
-				$playlist= new Playlist($conn,$pid);
-				
-				echo "<li class='row tracklistRow'>
-						<div class='col-md-5'>
-							<a href='playlist.php?pid=".$pid."'><span class='artistName'>".$playlist->getTitle()."</span></a>
-						</div>
-
-						<div class='col-md-5'>
-							<a href='user.php?username=".$playlist->getOwner()."'><span class='artistName'>".$playlist->getOwner()."</span></a>
-						</div>";
-						if($wantCreationDate){
-						
-						echo "<div class='col-md-5'>
-							<span class=''>".$playlist->getDate()."</span>
-						</div>";		
-						}
-						//echo "</li><hr class='bg-danger'>";
-					   $i = $i + 1;
-			}
-			
-		}
 	}
 ?>

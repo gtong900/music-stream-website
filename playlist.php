@@ -9,6 +9,10 @@
 	}
 
 	$playlist=new Playlist($conn,$pid);
+
+	$userid = "gtong900";
+	echo "<input type='hidden' class='userid' value='$userid'>";
+	echo "<input type='hidden' class='pid' value='$pid'>";
 ?>
 
 <div class="container-fluid">
@@ -37,6 +41,7 @@
 
 
 		 		$playlistTrack=new Track($conn,$trackid);
+		 		$artistid=$playlistTrack->getArtistid();
 
 		 		echo "<li class='row tracklistRow'>
 						<div class='col-md-1'>
@@ -49,16 +54,18 @@
 						</div>
 
 						<div class='col-md-2'>
-							<a href='artist.php?artistid=".$playlistTrack->getArtistid()."'><span class='artistName'>" . $playlistTrack->getArtistitle() . "</span></a>
+							<a href='artist.php?artistid=$artistid'><span class='artistName'>" . $playlistTrack->getArtistitle() . "</span></a>
 						</div>
 
 						<div class='col-md-2'>
 							<input type='hidden' class='trackId' value='$trackid'>
+							<input type='hidden' class='ai' value='$artistid'>
 							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
 						</div>
 
 						<div class='col-md-2'>
-							<span class=''>" . "</span>
+							<input type='hidden' class='trackId' value='$trackid'>
+							<img src='assets/images/icons/delete.png' class='dropsong'>
 						</div>						
 					  </li>";
 
@@ -69,13 +76,9 @@
 
 	</ul>
 </div>
-<nav class="optionsMenu">
-	<input type="hidden" class="songId">
-	<div class="item">
-	<?php echo Playlist::getPlaylistsDropdown($conn,'gtong900'); ?>
-    </div>
-	<div class="item" id="like">Like this artist</div>
-</nav>
 
 
-<?php require_once('frame_footer.php'); ?>
+<?php 
+    require_once("includes/optionsMenu.php");
+	require_once('frame_footer.php'); 
+?>
