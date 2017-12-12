@@ -66,6 +66,7 @@
 						<div class='col-md-2'>
 							<span class='trackName'>Artist</span>
 						</div>
+						
 
 						<div class='col-md-2'>
 							<span class='trackName'>Options</span>
@@ -98,6 +99,7 @@
 						<div class='col-md-2'>
 							<a href='artist.php?artistid=".$track['artistid']."'><span class='artistName'>".$track['artistitle']."</span></a>
 						</div>
+						
 
 						<div class='col-md-2'>
 							<input type='hidden' class='trackId' value='$trackid'>
