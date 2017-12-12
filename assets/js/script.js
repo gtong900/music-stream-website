@@ -51,10 +51,18 @@ $(document).on("click", ".dropdown-item", function(click) {
 $(document).on("click", ".add", function(click) {
 	var currenTime=ShowUTCDate();
 	var target=$(click.target);
-	var newPlaylist=target.prevAll("input").val();
+	var newPlaylist=$(".newPlaylist").val();
 	var userId=$(".userid").val();
+
+	if ($(".makeitprivate").is(':checked')) {
+		var public=0;	
+	}
+	else{
+		var public=1;
+	}
+
 	if (newPlaylist.length != 0 && newPlaylist.length<22) {
-			$.post("includes/handlers/ajax/createPlaylist.php",{newPlaylist:newPlaylist,userId:userId,currenTime:currenTime})
+			$.post("includes/handlers/ajax/createPlaylist.php",{newPlaylist:newPlaylist,userId:userId,currenTime:currenTime,public:public})
 			.done(function(error){
 				if (error!="") {
 					alert(error);
