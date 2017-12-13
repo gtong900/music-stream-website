@@ -12,22 +12,35 @@
 						<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Rate this song</button>
 						<div class="dropdown-menu dropdown-menu-left">
 
-								<span>Current rated as: 3.2 
-								</span></br>
-								&nbsp;
-					    		<span class='rate-item'>0</span>
-					    		&nbsp;
-					    		<span class='rate-item'>1</span>
-					    		&nbsp;
-					    		<span class='rate-item'>2</span>
-					    		&nbsp;
-					    		<span class='rate-item'>3</span>
-					    		&nbsp;
-					    		<span class='rate-item'>4</span>
-					    		&nbsp;
-					    		<span class='rate-item'>5</span>
-					    		&nbsp;
-					    		<span class='rate-item'>6</span>
+								<div class="row" style="width: 100%;margin-left: 10px">
+									<div class="col-xs-2">
+										<span class='rate-item'>&nbsp;0&nbsp;</span>
+									</div>
+									<div class="col-xs-2">
+										<span class='rate-item'>&nbsp;1&nbsp;</span>
+									</div>
+									<div class="col-xs-2">
+										<span class='rate-item'>&nbsp;2&nbsp;</span>
+									</div>
+									<div class="col-xs-2">
+										<span class='rate-item'>&nbsp;3&nbsp;</span>
+									</div>
+									<div class="col-xs-2">
+										<span class='rate-item'>&nbsp;4&nbsp;</span>
+									</div>
+									<div class="col-xs-2">
+										<span class='rate-item'>&nbsp;5&nbsp;</span>
+									</div>
+									<div class="col-xs-2">
+										<span class='rate-item'>&nbsp;6&nbsp;</span>
+									</div>
+								</div>
+
+								<div class="row" style="margin-left: 10px">
+								<span>Average Rating: 3.2 
+								</span>
+								</div>
+
 					    </div>
 					</div>
 

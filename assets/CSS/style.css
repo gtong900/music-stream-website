@@ -318,3 +318,8 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+
+.rate-item:hover {
+    background-color: #f1f1f1;
+    color: #212529;
+}
