@@ -54,12 +54,12 @@
 <div class="container-fluid">
 	  <div class="row">
 	    <div class="col-md">
-	      <h3 class="text-danger">Playlist</h3>
+	      <h3 class="text-danger">Playlist Owned</h3>
            <div>
            	<?php
            		if ($isOwner){
            	  echo "<div class='listitem'>
-           	  	<input type='text' class='newPlaylist' placeholder='Create New Playlist' required/>
+           	  	<input type='text' class='newPlaylist' placeholder='Create New Playlist' required/><span class='details'>  Private/Public  </span>
            	  	<label class='switch'>
 				  <input type='checkbox' class='makeitprivate' checked>
 				  <span class='slider round'></span>
@@ -107,7 +107,7 @@
 	    </div>
 
 	    <div class="col-md">
-	      <h3 class="text-primary">Likes</h3>
+	      <h3 class="text-primary">Artist liked</h3>
 		      <div>
 		      	<?php
 
@@ -136,7 +136,7 @@
 		      </div>
 	    </div>
 	    <div class="col-md">
-	      <h3 class="text-secondary">Follows</h3>
+	      <h3 class="text-secondary">User Followed</h3>
 	        <div>
            	   <?php
 

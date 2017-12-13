@@ -78,8 +78,12 @@ $_SESSION["EmailMatch"]= true;
 	 $conn->query($insertNewUser);
 =======
 	echo "sign up complete!";
+<<<<<<< HEAD
 	 //if($insertion = $conn->query($insertNewUser))
 >>>>>>> 2cd656aae822ca5ccf8b93558bd4a7ff30f73286
+=======
+	 $conn->query($insertNewUser);
+>>>>>>> 7fcae0260a59b0e2a5cb2c385a7efef618d0bbf8
 	  //showerror();
 	header("Location: index.php");	
 	}else{
