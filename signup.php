@@ -8,13 +8,13 @@
 if(session_status()!=2)
 session_start();
 if(isset($_SESSION["UsernameTaken"]) && $_SESSION["UsernameTaken"]!= false)
-	 Echo "<b>UserName Taken already please try another</b></br>";
+	 Echo "<errormsg>UserName Taken already please try another</errormsg></br>";
 if(isset($_SESSION["Emailexists"]) && $_SESSION["Emailexists"]!= false)
-	 Echo "<b>This email exists, try login</b></br>";
+	 Echo "<errormsg>This email exists, try login</errormsg></br>";
 if(isset($_SESSION["PasswordMatch"]) &&$_SESSION["PasswordMatch"]!= true)
-	 Echo "<b>Password do not match, try again</b></br>";
+	 Echo "<errormsg>Password do not match, try again</errormsg></br>";
 if(isset($_SESSION["EmailMatch"]) &&$_SESSION["EmailMatch"]!= true)
-	 Echo "<b>Email do not match, try again</b></br>";
+	 Echo "<errormsg>Email do not match, try again</errormsg></br>";
 
 ?>
 		<!-- This signing in-->
