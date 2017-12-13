@@ -29,7 +29,7 @@
 	<div class="container-fluid">
 	  <div class="row">
 	    <div class="col-md">
-	      <h3 class="text-danger">TRACK</h3>
+	      <h3 class="text-danger">Latest Track by liked Artists</h3>
            <div>
            	   <?php
 
@@ -68,7 +68,7 @@
 	    </div>
 
 	    <div class="col-md">
-	      <h3 class="text-primary">PLAYLIST</h3>
+	      <h3 class="text-primary">Latest Playlist from user followed</h3>
 		      <div>
 		      	<?php
 
