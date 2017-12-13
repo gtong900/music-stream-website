@@ -3,7 +3,7 @@
 require_once 'sqlconnection.php';
    require_once 'authentication.inc'; 
 
-$username =  make_safe($_POST["username"]);
+$username =  $_POST["username"];
 $fullname =  $_POST["fullname"];
 $pass1 = $_POST["password"]; 
 $pass2 = $_POST["password_confirm"]; 
@@ -61,7 +61,8 @@ $_SESSION["EmailMatch"]= true;
 	$_SESSION["Emailexists"]== false &&
 	$_SESSION["PasswordMatch"]== true &&
 	$_SESSION["EmailMatch"]== true){
-		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
+		$insertNewUser = "Insert into user 
+	(username,uname,email,city,password) Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
 			//reset session
 			$_SESSION["UsernameTaken"]= false;
 			$_SESSION["Emailexists"]= false;
@@ -70,7 +71,7 @@ $_SESSION["EmailMatch"]= true;
 			
 		
 	$_SESSION["logingmsg"] = "sign up complete!, please login";
-	 //if($insertion = $conn->query($insertNewUser))
+	 $conn->query($insertNewUser);
 	  //showerror();
 	header("Location: index.php");	
 	}else{
