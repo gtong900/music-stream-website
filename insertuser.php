@@ -1,7 +1,6 @@
 <?php
 
 require_once 'sqlconnection.php';
-   require_once 'authentication.inc'; 
 
 $username =  $_POST["username"];
 $fullname =  $_POST["fullname"];
@@ -48,7 +47,7 @@ $_SESSION["EmailMatch"]= true;
 //check for passwork match
 		if($pass1!=$pass2)
 			$_SESSION["PasswordMatch"] = false;
-//check for email match
+//check for passwork match
 		if($email1!=$email2)
 			$_SESSION["EmailMatch"] = false;
 
@@ -61,8 +60,12 @@ $_SESSION["EmailMatch"]= true;
 	$_SESSION["Emailexists"]== false &&
 	$_SESSION["PasswordMatch"]== true &&
 	$_SESSION["EmailMatch"]== true){
+<<<<<<< HEAD
 		$insertNewUser = "Insert into user 
 	(username,uname,email,city,password) Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
+=======
+		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}','')";
+>>>>>>> 2cd656aae822ca5ccf8b93558bd4a7ff30f73286
 			//reset session
 			$_SESSION["UsernameTaken"]= false;
 			$_SESSION["Emailexists"]= false;
@@ -70,8 +73,13 @@ $_SESSION["EmailMatch"]= true;
 			$_SESSION["EmailMatch"]= true;
 			
 		
+<<<<<<< HEAD
 	$_SESSION["logingmsg"] = "sign up complete!, please login";
 	 $conn->query($insertNewUser);
+=======
+	echo "sign up complete!";
+	 //if($insertion = $conn->query($insertNewUser))
+>>>>>>> 2cd656aae822ca5ccf8b93558bd4a7ff30f73286
 	  //showerror();
 	header("Location: index.php");	
 	}else{
