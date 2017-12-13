@@ -13,6 +13,10 @@ function randHash($len=32)
 
 function authenticateUser($connection, $username, $password)
 {
+
+
+	
+	
   // Test the username and password parameters
   if (!isset($username) || !isset($password))
     return false;
@@ -55,6 +59,10 @@ function sessionAuthenticated()
    include('sqlconnection.php');
    if(session_status()!=2)
    session_start();
+   
+   	if((isset($_SESSION["logingmsg"])) && $_SESSION["logingmsg"]=="sign up complete!, please login")
+	return false;
+   
   // Check if the user hasn't logged in
   if (!isset($_SESSION["loginUsername"]))
   {

@@ -1,9 +1,8 @@
 <?php
 
 require_once 'sqlconnection.php';
-   require_once 'authentication.inc'; 
 
-$username =  make_safe($_POST["username"]);
+$username =  $_POST["username"];
 $fullname =  $_POST["fullname"];
 $pass1 = $_POST["password"]; 
 $pass2 = $_POST["password_confirm"]; 
@@ -48,7 +47,7 @@ $_SESSION["EmailMatch"]= true;
 //check for passwork match
 		if($pass1!=$pass2)
 			$_SESSION["PasswordMatch"] = false;
-//check for email match
+//check for passwork match
 		if($email1!=$email2)
 			$_SESSION["EmailMatch"] = false;
 
@@ -61,7 +60,7 @@ $_SESSION["EmailMatch"]= true;
 	$_SESSION["Emailexists"]== false &&
 	$_SESSION["PasswordMatch"]== true &&
 	$_SESSION["EmailMatch"]== true){
-		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}')";
+		$insertNewUser = "Insert into user Values ('{$username}','{$fullname}','{$email1}','{$city}','{$pass1}','')";
 			//reset session
 			$_SESSION["UsernameTaken"]= false;
 			$_SESSION["Emailexists"]= false;
@@ -69,7 +68,7 @@ $_SESSION["EmailMatch"]= true;
 			$_SESSION["EmailMatch"]= true;
 			
 		
-	$_SESSION["logingmsg"] = "sign up complete!, please login";
+	echo "sign up complete!";
 	 //if($insertion = $conn->query($insertNewUser))
 	  //showerror();
 	header("Location: index.php");	
