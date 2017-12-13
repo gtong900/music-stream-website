@@ -48,6 +48,29 @@ $(document).on("click", ".dropdown-item", function(click) {
 
 });
 
+
+
+$(document).on("click", ".rate-item", function(click) {
+	var rating=$(click.target).text();
+	var userId=$(".userid").val();
+	var currenTime=ShowUTCDate();
+	var songId=$(".songId").val();
+
+	$.post("includes/handlers/ajax/rateTrack.php",{rating:rating,userId:userId,currenTime:currenTime,songId,songId})
+	.done(function(error){
+		if (error!="") {
+			alert(error);
+			return;
+		}
+		else{
+			hideOptionsMenu();
+			alert('Thank you, track rated as '+rating+' star.');
+
+		}
+	});
+
+});
+
 $(document).on("click", ".add", function(click) {
 	var currenTime=ShowUTCDate();
 	var target=$(click.target);

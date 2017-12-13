@@ -23,7 +23,14 @@
 			$this->artistitle=$track['artistitle'];
 			$this->artistid=$track['artistid'];
 		}
-		
+
+		public function getRating($conn,$id){
+			$query=mysqli_query($conn,"SELECT AVG(rating) as avg FROM rate 
+										WHERE trackid = '$trackid' ;");
+			$hold=mysqli_fetch_array($query);
+			return $hold['avg'];
+		}
+
 		public function getTrackInfo($conn,$id){
 			$trackQuery=mysqli_query($conn,"SELECT *
 										FROM track t natural join artist a
