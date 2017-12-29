@@ -14,30 +14,33 @@
 
 								<div class="row" style="width: 100%;margin-left: 10px">
 									<div class="col-xs-2">
-										<span class='rate-item'>&nbsp;0&nbsp;</span>
+										&nbsp;<span class='rate-item'>1</span>&nbsp;
 									</div>
 									<div class="col-xs-2">
-										<span class='rate-item'>&nbsp;1&nbsp;</span>
+										&nbsp;<span class='rate-item'>2</span>&nbsp;
 									</div>
 									<div class="col-xs-2">
-										<span class='rate-item'>&nbsp;2&nbsp;</span>
+										&nbsp;<span class='rate-item'>3</span>&nbsp;
 									</div>
 									<div class="col-xs-2">
-										<span class='rate-item'>&nbsp;3&nbsp;</span>
+										&nbsp;<span class='rate-item'>4</span>&nbsp;
 									</div>
 									<div class="col-xs-2">
-										<span class='rate-item'>&nbsp;4&nbsp;</span>
+										&nbsp;<span class='rate-item'>5</span>&nbsp;
 									</div>
 									<div class="col-xs-2">
-										<span class='rate-item'>&nbsp;5&nbsp;</span>
+										&nbsp;<span class='rate-item'>6</span>&nbsp;
 									</div>
 									<div class="col-xs-2">
-										<span class='rate-item'>&nbsp;6&nbsp;</span>
+										&nbsp;<span class='rate-item'>7</span>&nbsp;
+									</div>
+									<div class="col-xs-2">
+										&nbsp;<span class='rate-item'>8</span>&nbsp;
 									</div>
 								</div>
 
 								<div class="row" style="margin-left: 10px">
-								<span>Average Rating: 3.2 
+								<span class="avgrate"> 
 								</span>
 								</div>
 

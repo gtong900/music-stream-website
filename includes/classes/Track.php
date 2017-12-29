@@ -61,7 +61,7 @@
 		public function printTracks($conn,$trackIdArray,$wantDuration,$wantDrop){
 			$i=1;
 			//heading
-			echo "<li class='row tracklistRow'>
+/*			echo "<li class='row tracklistRow'>
 						<div class='col-md-1'>
 							<span class='counter'></span>
 						</div>
@@ -89,7 +89,7 @@
 						</div>";		
 						}						
 					  echo"</li>";
-
+*/
 		 	foreach ($trackIdArray as $trackid) {
 				$track= Track::getTrackInfo($conn,$trackid);
 				$duration = date("i:s",floor($track['trackduration']/1000));
@@ -103,20 +103,18 @@
 							<span class='trackName t'>" . $track['trackname'] . "</span>
 						</div>
 
-						<div class='col-md-2'>
+						<div class='col-md-3'>
 							<a href='artist.php?artistid=".$track['artistid']."'><span class='artistName'>".$track['artistitle']."</span></a>
-						</div>
+							<input type='hidden' class='trackId' value='$trackid'>
+							<input type='hidden' class='ai' value=".$track['artistid'].">
+							<img class='optionsButton' src='assets/images/icons/more.png' style='float:right' onclick='showOptionMenu(this)'>
+						</div>";
 						
 
-						<div class='col-md-2'>
-							<input type='hidden' class='trackId' value='$trackid'>
-							<<input type='hidden' class='ai' value=".$track['artistid'].">
-							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
-						</div>";
 						if($wantDuration){
 						
-						echo "<div class='col-md-2'>
-							<span class=''>".$duration ."</span>
+						echo "<div class='col-md-3'>
+							<span class='' style=''>".$duration ."</span>
 						</div>";		
 						}
 						if($wantDrop){

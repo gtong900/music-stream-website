@@ -56,7 +56,7 @@ $(document).on("click", ".rate-item", function(click) {
 	var currenTime=ShowUTCDate();
 	var songId=$(".songId").val();
 
-	$.post("includes/handlers/ajax/rateTrack.php",{rating:rating,userId:userId,currenTime:currenTime,songId,songId})
+	$.post("includes/handlers/ajax/rateTrack.php",{rating:rating,userId:userId,currenTime:currenTime,songId:songId})
 	.done(function(error){
 		if (error!="") {
 			alert(error);
@@ -233,6 +233,14 @@ function showOptionMenu(button){
 
 	var left=$(button).offset().left;
 	var buttonWidth=$(".optionsButton").width()+100;
+
+
+	//getTrackRate
+	$.post("includes/handlers/ajax/getTrackRate.php",{songId:trackId})
+	.done(function(data){
+		$(".avgrate").text(data);
+	});
+
 
 	menu.css({"top": top+"px","left": left-buttonWidth+"px", "display":"inline"});
 	$(".optionsMenu").show();

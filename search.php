@@ -5,12 +5,12 @@
 	
 	$userid = $_SESSION["loginUsername"];
 
-	if(isset($_GET['keyword'])){
-		$keyword=make_safe($_GET['keyword']);
+	if(isset($_GET['keyword']) && make_safe($_GET['keyword']) != ""){
+		$keyword = make_safe($_GET['keyword']);
 		echo "<input type='hidden' class='keyword' value='$keyword'>";
 	}
 	else{
-		header("Location: home.php");
+		header("Location: foryou.php");
 	}
 
 	echo "<input type='hidden' class='userid' value='$userid'>";
@@ -53,14 +53,13 @@
 									  <input type='hidden' class='td trackId' value='$trackid'>
 								      <span class='trackName t'>$trackname</span>
 								      </div>
-								      <div class='col-md-4'>
+								      <div class='col-md-5'>
 									  <a href='artist.php?artistid=$artistid'>$artistitle</a>
-									  </div>
-									  <div class='col-md-1'>
 									  <input type='hidden' class='ai' value='$artistid'>
 									  <input type='hidden' class='trackId' value='$trackid'>
-									  <img class='optionsButton' src='assets/images/icons/more.png' style='float:left' onclick='showOptionMenu(this)'>
+									  <img class='optionsButton' src='assets/images/icons/more.png' style='float:right' onclick='showOptionMenu(this)'>
 									  </div>
+
 									  
 								  </div><hr class='bg-danger'>";		
 						}

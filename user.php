@@ -120,10 +120,11 @@
 					$artistid = $row["artistid"];
 					$artist = new Artist($conn,$artistid);
 					echo "<div class='listitem'>
-							<input type='hidden' class='artistid' value='$artistid'>
+							
 						  <a href='artist.php?artistid=$artistid'><b>".$artist->getTitle()."</b></a>";
 						  if($isOwner){
-						  	echo "<img src='assets/images/icons/delete.png' class='unlike'>";
+						  	echo "<input type='hidden' class='artistid' value='$artistid'>
+						  			<img src='assets/images/icons/delete.png' class='unlike'>";
 						  }
 					echo "<hr class='bg-primary'>
 						  </div>";		

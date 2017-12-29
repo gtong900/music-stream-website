@@ -8,7 +8,7 @@ if(sessionAuthenticated()){?>
                     <iframe src="https://open.spotify.com/embed?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="100%" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
-           <div id="nowPlayingCenter">
+<!--           <div id="nowPlayingCenter">
                 <div class="content playerControls">
                     <div class="buttons">
                         <button class="controlButton shuffle" title="Shuffle button">
@@ -52,6 +52,7 @@ if(sessionAuthenticated()){?>
                 </div>
             </div>
         </div>
+    -->
     </div>
 
 

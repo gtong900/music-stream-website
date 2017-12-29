@@ -13,17 +13,17 @@
 						FROM ((user u natural join likes l ) natural join track t) natural join albumcontent ac  natural join album a  natural join artist ar
 						WHERE u.username='{$userid}'
 						ORDER BY a.albumreleasedate DESC
-						LIMIT 30";
+						LIMIT 10";
 	$query_recentlist="SELECT p.pid, p.ptitle, p.pdate, p.powner
 						FROM follows f join playlist p on f.username=p.powner 
 						WHERE f.follower='{$userid}' AND p.public != 0
 						GROUP BY p.powner, p.pdate DESC
-						LIMIT 30;";
+						LIMIT 10;";
 	$query_recentplay="SELECT DISTINCT t.trackname, a.artistitle, t.trackid
 						FROM play p natural join track t natural join artist a
 						WHERE p.username='{$userid}'
 						ORDER BY p.playtime DESC
-						LIMIT 30;";
+						LIMIT 10;";
 						?>
 
 	<div class="container-fluid">
@@ -48,13 +48,11 @@
 									  <input type='hidden' class='td trackId' value='$trackid'>
 								      <span class='trackName t'>".$row["trackname"]."</span>
 								      </div>
-								      <div class='col-md-4'>
+								      <div class='col-md-5'>
 									  <a href='artist.php?artistid=$artistid'>".$row["artistitle"]."</a>
-									  </div>
-									  <div class='col-md-1'>
 									  <input type='hidden' class='ai' value='$artistid'>
 									  <input type='hidden' class='trackId' value='$trackid'>
-									  <img class='optionsButton' src='assets/images/icons/more.png' style='float:left' onclick='showOptionMenu(this)'>
+									  <img class='optionsButton' src='assets/images/icons/more.png' style='float:right' onclick='showOptionMenu(this)'>
 									  </div>
 									  
 								  </div><hr class='bg-danger'>";		
@@ -80,7 +78,7 @@
 							echo "<div class='row listitem'>
 							      <div class='col-md-8 playlistitle'>
 							      <a href='playlist.php?pid=".$row["pid"]."'><b>".$row["ptitle"]."</b></a></div>
-							      <div class='col-md-4 playlistowner'>".$row["powner"]."</div>
+							      <div class='col-md-4 playlistowner'><a href='user.php?username=".$row["powner"]."'>".$row["powner"]."</a></div>
 							      </div><hr class='bg-primary'>";		
 						}
 
@@ -110,14 +108,13 @@
 									  <input type='hidden' class='td trackId' value='$trackid'>
 								      <span class='trackName t'>".$row["trackname"]."</span>
 								      </div>
-								      <div class='col-md-4'>
+								      <div class='col-md-5'>
 									  <a href='artist.php?artistid=$artistid'>".$row["artistitle"]."</a>
-									  </div>
-									  <div class='col-md-1'>
-									  <input type='hidden' class='ai' value='$artistid'>
+  									  <input type='hidden' class='ai' value='$artistid'>
 									  <input type='hidden' class='trackId' value='$trackid'>
-									  <img class='optionsButton' src='assets/images/icons/more.png' style='float:left' onclick='showOptionMenu(this)'>
+									  <img class='optionsButton' src='assets/images/icons/more.png' style='float:right' onclick='showOptionMenu(this)'>
 									  </div>
+
 									  
 								  </div><hr class='bg-secondary'>";	
 						}
