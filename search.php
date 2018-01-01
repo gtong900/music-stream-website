@@ -30,7 +30,6 @@
 					FROM user u
 					WHERE username LIKE '%$keyword%';";
 						?>
-	$query
 
 	<div class="container-fluid">
 	  <div class="row">
