@@ -46,7 +46,7 @@ $_SESSION["EmailMatch"]= true;
 
 
 //check for passwork match
-		if($pass1!=$pass2)
+		if($pass1!== $pass2)
 			$_SESSION["PasswordMatch"] = false;
 //check for email match
 		if($email1!=$email2)
