@@ -6,7 +6,7 @@ In this guide:
 - [x] [Sign Up](#sign-up)
 - [x] [Error Message](#error-message)
 - [x] [User Center (Home)](#user-center-home)
-- [x] [Recommendation Page (For You)](##recommendation-page-for-you)
+- [x] [Recommendation Page (For You)](#recommendation-page-for-you)
 - [x] [Keyword Searching](#keyword-searching)
 - [x] [Playlist/Album Page](#playlistalbum-page)
 - [x] [Multi-function Button](#multi-function-button)
