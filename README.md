@@ -3,14 +3,14 @@ http://music-stream.azurewebsites.net
 
 In this guide:
 - [x] [Login](#login)
-- [x] [Sign Up]
-- [x] [Error Message]
-- [x] [User Center (Home)]
-- [x] [Recommendation Page (For You)]
-- [x] [Keyword Searching]
-- [x] [Playlist/Album Page]
-- [x] [Playlist/Album Page]
-- [x] [Multi-function Button]
+- [x] [Sign Up](#sign-up)
+- [x] [Error Message](#error-message)
+- [x] [User Center (Home)](#user-center-home)
+- [x] [Recommendation Page (For You)](##recommendation-page-for-you)
+- [x] [Keyword Searching](#keyword-searching)
+- [x] [Playlist/Album Page](#playlistalbum-page)
+- [x] [Multi-function Button](#multi-function-button)
+- [x] [Mobile-friendly](#mobile-friendly)
 
 
 ## Login
