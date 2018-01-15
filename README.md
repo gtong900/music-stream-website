@@ -10,7 +10,7 @@ In this guide:
 - [x] [Keyword Searching](#keyword-searching)
 - [x] [Playlist/Album Page](#playlistalbum-page)
 - [x] [Multi-function Button](#multi-function-button)
-- [x] [Mobile-friendly](#mobile-friendly)
+- [x] [Mobile-friendly (iphone X)](#mobile-friendly-iphone-x)
 
 
 ## Login
@@ -76,6 +76,6 @@ When user clicks 'Join' button
 
 - currently, each user is allowed to rate one specific track only once and the average rating reflects average result of all the users who have once rated this particular track
 
-## Mobile-friendly
+## Mobile-friendly (iphone X)
 ![wechatimg10](https://user-images.githubusercontent.com/23438644/34925491-a707fc2c-f977-11e7-8456-a488ece5fca7.jpeg)
 ![wechatimg9](https://user-images.githubusercontent.com/23438644/34925490-a57c9d36-f977-11e7-87f4-3348309bc2dd.jpeg)
