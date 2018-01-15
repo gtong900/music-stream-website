@@ -26,7 +26,7 @@ In this guide:
 When user clicks 'Join' button
 
 - the initial check would happen at browser level, the browser would check if all the information are filled and if the email address meets the basic format
-- then the input data would be trimmered and unusual content like html tag would be removed
+- then the input data would be trimmed and unusual content like html tag would be removed as well
 - the clean data would be check at the font end again to see if the password meets requirement and if the passwords and email addresses match respectively
 - finally the data would be sent to server side to check possible problems such as duplicate username or email
 - then all the issues, which result in the failure of registration, will be summaried and sent back to user
