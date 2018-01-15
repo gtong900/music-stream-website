@@ -1,6 +1,18 @@
 # music-stream-website
 http://music-stream.azurewebsites.net
 
+In this guide:
+- [x] [Login](#login)
+- [x] [Sign Up]
+- [x] [Error Message]
+- [x] [User Center (Home)]
+- [x] [Recommendation Page (For You)]
+- [x] [Keyword Searching]
+- [x] [Playlist/Album Page]
+- [x] [Playlist/Album Page]
+- [x] [Multi-function Button]
+
+
 ## Login
 <img width="824" alt="screen shot 2018-01-14 at 8 45 41 pm" src="https://user-images.githubusercontent.com/23438644/34923673-ef113d96-f96b-11e7-9942-abd80d38d093.png">
 
@@ -39,7 +51,7 @@ When user clicks 'Join' button
 
 - recent play is dynamically updated to display the most recently played 10 songs
 
-## Search Page
+## Keyword Searching
 <img width="1268" alt="screen shot 2018-01-14 at 9 17 24 pm" src="https://user-images.githubusercontent.com/23438644/34924268-6ea0a462-f970-11e7-8f38-ae7773c181a8.png">
 
 ## Playlist/Album Page
