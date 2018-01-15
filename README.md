@@ -14,6 +14,11 @@ http://music-stream.azurewebsites.net
 ## User Center (Home)
 <img width="1286" alt="screen shot 2018-01-14 at 9 05 05 pm" src="https://user-images.githubusercontent.com/23438644/34923999-a383ba86-f96e-11e7-8eb0-4bac192f6637.png">
 
+<img width="44" alt="screen shot 2018-01-14 at 9 57 58 pm" src="https://user-images.githubusercontent.com/23438644/34925231-0d9fbe7c-f976-11e7-9d1a-d312ce780d03.png">
+<img width="44" alt="screen shot 2018-01-14 at 9 58 10 pm" src="https://user-images.githubusercontent.com/23438644/34925235-10d20ece-f976-11e7-8157-4bc725cbf1b9.png">
+
+<img width="44" alt="screen shot 2018-01-14 at 10 00 42 pm" src="https://user-images.githubusercontent.com/23438644/34925281-64931ada-f976-11e7-919f-a27ba92795dc.png">
+
 ## Recommendation Page (For You)
 <img width="1283" alt="screen shot 2018-01-14 at 9 07 28 pm" src="https://user-images.githubusercontent.com/23438644/34924039-f5b47430-f96e-11e7-87e4-7f4d315b2f67.png">
 
@@ -27,7 +32,7 @@ http://music-stream.azurewebsites.net
 
 - when current user visits playlist of the others, there won't be a red 'delete' button on the right
 
-# Multi-function Button
+## Multi-function Button
 <img width="81" alt="screen shot 2018-01-14 at 9 33 13 pm" src="https://user-images.githubusercontent.com/23438644/34924695-e7823664-f972-11e7-90e9-3a5017757315.png">
 
 <img width="450" alt="screen shot 2018-01-14 at 9 33 45 pm" src="https://user-images.githubusercontent.com/23438644/34924706-f277437a-f972-11e7-9aa0-7b34f4b5edbb.png">
@@ -39,3 +44,7 @@ http://music-stream.azurewebsites.net
 <img width="450" alt="screen shot 2018-01-14 at 9 35 10 pm" src="https://user-images.githubusercontent.com/23438644/34924721-0b944a2e-f973-11e7-95ab-6dd85d427950.png">
 
 <img width="450" alt="screen shot 2018-01-14 at 9 35 24 pm" src="https://user-images.githubusercontent.com/23438644/34924726-14d53864-f973-11e7-8e25-c6583841802e.png">
+
+## Our web application is also mobile-friendly
+![wechatimg10](https://user-images.githubusercontent.com/23438644/34925491-a707fc2c-f977-11e7-8456-a488ece5fca7.jpeg)
+![wechatimg9](https://user-images.githubusercontent.com/23438644/34925490-a57c9d36-f977-11e7-87f4-3348309bc2dd.jpeg)
