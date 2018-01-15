@@ -66,11 +66,15 @@ When user clicks 'Join' button
 
 <img width="450" alt="screen shot 2018-01-14 at 9 38 41 pm" src="https://user-images.githubusercontent.com/23438644/34924753-58c2dedc-f973-11e7-86c9-617e999f7d2d.png">
 
+- playlists that are owned by current user would be listed when 'Add to playlist' is clicked
+
 <img width="450" alt="screen shot 2018-01-14 at 9 34 35 pm" src="https://user-images.githubusercontent.com/23438644/34924714-009d8f9a-f973-11e7-9b74-fcd6305a173a.png">
 
 <img width="450" alt="screen shot 2018-01-14 at 9 35 10 pm" src="https://user-images.githubusercontent.com/23438644/34924721-0b944a2e-f973-11e7-95ab-6dd85d427950.png">
 
 <img width="450" alt="screen shot 2018-01-14 at 9 35 24 pm" src="https://user-images.githubusercontent.com/23438644/34924726-14d53864-f973-11e7-8e25-c6583841802e.png">
+
+- currently, each user is allowed to rate one specific track only once and the average rating reflects average result of all the users who have once rated this particular track
 
 ## Mobile-friendly
 ![wechatimg10](https://user-images.githubusercontent.com/23438644/34925491-a707fc2c-f977-11e7-8456-a488ece5fca7.jpeg)
