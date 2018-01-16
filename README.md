@@ -44,7 +44,7 @@ When user clicks 'Join' button
 
 <img width="44" alt="screen shot 2018-01-14 at 10 00 42 pm" src="https://user-images.githubusercontent.com/23438644/34925281-64931ada-f976-11e7-919f-a27ba92795dc.png">
 
-- toggle button is used to set a playlist public to the others or not and it is public in default
+- toggle button is used to set a playlist public to the others or not and it is public by default
 
 ## Recommendation Page (For You)
 <img width="1283" alt="screen shot 2018-01-14 at 9 07 28 pm" src="https://user-images.githubusercontent.com/23438644/34924039-f5b47430-f96e-11e7-87e4-7f4d315b2f67.png">
