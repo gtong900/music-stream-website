@@ -1,7 +1,15 @@
-# music-stream-website
-http://music-stream.azurewebsites.net
+# play with the real site !
 
-In this guide:
+You can play with the real site at http://music-stream.azurewebsites.net!
+Although signing up your own account is recommended, the test account is provided below:
+username:gtong900
+password:000000
+Note: One account is not allowed to log at different browsers/places at same time, which means that your session could be automatically logged out if others log in with this test account when you are on the account.
+
+
+# or read this site manual !
+
+In this manual:
 - [x] [Login](#login)
 - [x] [Sign Up](#sign-up)
 - [x] [Error Message](#error-message)
