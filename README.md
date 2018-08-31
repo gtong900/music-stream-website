@@ -1,6 +1,6 @@
 # play with the real site !
 
-You can visit the real site from [here](http://music-stream.azurewebsites.net!)
+You can visit the real site from [here](http://music-stream.azurewebsites.net)
 
 Although signing up your own account is recommended, the test account is provided below:
 
